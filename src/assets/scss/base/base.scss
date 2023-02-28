@@ -1,0 +1,40 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color: darken($color-primary, 5%);
+}
+
+p, a {
+  font-family: $font-body;
+  font-weight: 700;
+  font-feature-settings: "ss01";
+}
+
+.main {
+  background-color: $color-primary;
+  border-radius: 10px;
+  min-height: 40rem;
+  padding: 1rem;
+}
+
+.create-button {
+  background-color: $color-secondary;
+  border: none;
+  width: 18rem;
+  height: 3rem;
+  border-radius: 10px;
+  transition: 0.2s;
+
+  &__content {
+    padding-right: 0.5rem;
+    color: white;
+    font-weight: 200;
+  }
+
+  &:hover {
+    background-color: darken($color-secondary, 10%);
+  }
+}

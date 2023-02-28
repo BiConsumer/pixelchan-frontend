@@ -1,0 +1,70 @@
+.categories {
+  font-family: $font-body;
+
+  .head {
+    border-bottom: 3px solid $color-secondary;
+    color: $color-tertiary-dark;
+
+    p {
+      font-weight: 500;
+    }
+  }
+
+  .category {
+
+    padding-top: 1rem;
+    border-bottom: 1px solid $color-grey-light-3;
+
+    &-link {
+      text-decoration: none;
+      font-size: 1.8rem;
+    }
+
+    &-title {
+      color: $color-text;
+      transition: 0.2s;
+
+      &:hover {
+        color: $color-secondary;
+      }
+    }
+
+    &-description {
+      color: darken($color-tertiary-dark, 10%);
+      font-weight: 500;
+    }
+
+    &-topics {
+      color: $color-tertiary-dark;
+      font-weight: 900;
+    }
+
+
+
+    &-topic {
+      padding-bottom: 0.2rem;
+
+      &-name {
+        text-decoration: none;
+        color: $color-text;
+        transition: 0.2s;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        text-align: left;
+
+        &:hover{
+          color: $color-secondary;
+        }
+      }
+
+      &-date {
+        color: $color-tertiary-dark;
+        font-weight: 500;
+        text-align: right;
+      }
+    }
+  }
+}

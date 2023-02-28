@@ -1,0 +1,46 @@
+.nav {
+
+  text-align: left;
+  bottom: 1rem;
+  position: relative;
+
+  .title {
+    color: $color-tertiary-dark;
+    font-size: 0.85rem;
+    position: relative;
+    left: 2rem;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    padding-bottom: 1rem;
+  }
+
+  .item {
+    text-decoration: none;
+    color: $color-tertiary-dark;
+    transition: 0.2s;
+    padding: 0.5rem 8rem 0.5rem 1rem;
+    width: 100%;
+
+    &--active {
+      color: $color-secondary;
+      background-color: transparentize($color-secondary, 0.85);
+      border-left: 5px solid $color-secondary;
+      margin-left: -5px;
+    }
+
+    &:hover {
+      color: darken($color-secondary, 10%)
+    }
+  }
+
+  .icon {
+    position: relative;
+    right: 0.5rem
+  }
+
+}

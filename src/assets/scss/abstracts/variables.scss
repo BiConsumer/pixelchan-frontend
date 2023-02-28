@@ -1,0 +1,36 @@
+// -- Colors Variables -- //
+
+$color-primary: #fcfcfc;
+$color-secondary: #4e62ce;
+$color-tertiary: #bbbbbb;
+$color-tertiary-dark: #797979;
+
+$color-white: #fff;
+$color-black: #000;
+$color-light-black: #050404;
+
+$color-grey-light: #f7f7f7;
+$color-grey-light-2: #eeeeee;
+$color-grey-light-3: #d5d5d5;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-text: #212529;
+
+// -- Font -- //
+
+$default-font-size: 1.6rem;
+$font-headings: "Montserrat", sans-serif !default;
+$font-body: cera-round-pro;
+
+// -- Grid Variables -- //
+
+$grid-width: 114rem;
+$gutter-horizontal: 6rem;
+$gutter-vertical: 6rem;
+$gutter-vertical-small: 6rem;
+
+// -- Shadows -- //
+$shadow-small: 0 .1rem .3rem rgba($color-black,.2);

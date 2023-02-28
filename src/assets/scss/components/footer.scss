@@ -1,0 +1,36 @@
+.footer {
+  width: 100%;
+  box-shadow: 0 -10px 10px 8px rgb(220, 220, 220);
+  text-align: center;
+  position: sticky;
+  top: 100%;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  margin-top: 3rem;
+
+  .logo-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+
+    span {
+      color: $color-secondary;
+    }
+
+    .fa-cube {
+      margin-right: 0.5rem;
+      font-size: 2rem;
+      color: $color-secondary;
+      vertical-align: text-bottom;
+    }
+  }
+
+  &__reference {
+    font-size: 2rem;
+    color: black;
+    transition: 0.2s;
+  }
+
+  &__reference:hover {
+    color: $color-secondary;
+  }
+}
