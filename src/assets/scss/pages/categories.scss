@@ -46,7 +46,7 @@
 
       &-name {
         text-decoration: none;
-        color: $color-text;
+        color: $color-secondary;
         transition: 0.2s;
 
         white-space: nowrap;
@@ -56,7 +56,7 @@
         text-align: left;
 
         &:hover{
-          color: $color-secondary;
+          color: lighten($color-secondary, 10%);
         }
       }
 

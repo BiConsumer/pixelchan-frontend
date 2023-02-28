@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +11,9 @@ import { CategoryComponent } from './components/category/category/category.compo
 import { DateAgoPipe } from './pipes/date/date-ago.pipe';
 import {LatestPipe} from "./pipes/topic/latest-topics.pipe";
 import {CategoriesComponent} from "./components/category/categories/categories.component";
+import {NgxSpinnerModule} from "ngx-spinner";
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -29,8 +31,11 @@ import {CategoriesComponent} from "./components/category/categories/categories.c
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

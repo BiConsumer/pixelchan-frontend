@@ -1,7 +1,12 @@
 <div class="top container">
   <p>Top Topics</p>
 
-  <ng-template ngFor [ngForOf]="topics | async" let-topic let-i="index">
+
+  <div class="position-relative row align-middle spinner">
+    <ngx-spinner class="col" type="line-scale-pulse-out" [fullScreen]="false" size="medium" color="#4e62ce" bdColor="transparent"></ngx-spinner>
+  </div>
+
+  <ng-template ngFor [ngForOf]="topics" let-topic let-i="index">
     <div class="topic row">
       <a class="link col" routerLink="topic/{{topic.id}}">{{topic.name}}</a>
       <p class="col-auto upvotes">{{topic.rating}}<i [ngClass]=" 'arrow ' + (topic.rating >= 0 ? ' fa-solid fa-arrow-up' : 'fa-solid fa-arrow-down') "></i></p>
