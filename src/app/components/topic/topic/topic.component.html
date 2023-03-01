@@ -1,1 +1,17 @@
-<p>topic works!</p>
+<div class="topic container">
+
+  <div class="position-relative spinner">
+    <ngx-spinner name="topic" type="line-scale-pulse-out" [fullScreen]="false" size="large" color="#4e62ce" bdColor="transparent"></ngx-spinner>
+  </div>
+
+  <div class="initial" *ngIf="topicDisplay">
+
+    <div class="d-flex align-items-center">
+      <p class="initial-title">{{topicDisplay.topic.name}}</p>
+      <a routerLink="/category/{{topicDisplay.topic.category}}" class="d-inline initial-title-category">{{topicDisplay.topic.category}}</a>
+    </div>
+
+    <p class="initial-content">{{topicDisplay.posts[0].content}}</p>
+  </div>
+
+</div>

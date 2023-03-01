@@ -26,7 +26,7 @@
       <div class="col">
         <ng-template ngFor let-latest [ngForOf]="display.posts | slice:0:1" let-i="index">
           <div class="topic-post row">
-            <a class="topic-post-name col" routerLink="/topic/{{latest.id}}">{{latest.content}}</a>
+            <a class="topic-post-name col" routerLink="/post/{{latest.id}}">{{latest.content}}</a>
             <span class="topic-post-date col-auto">{{latest.createdAt | dateAgo}}</span>
           </div>
         </ng-template>

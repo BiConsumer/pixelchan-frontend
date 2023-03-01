@@ -1,0 +1,35 @@
+.topic {
+
+  .initial {
+    border-bottom: 1px solid $color-grey-light-3;
+
+    &-content {
+      padding-top: 1rem;
+      color: $color-tertiary-dark;
+    }
+
+    &-title {
+      font-size: 1.8rem;
+      margin: 0;
+
+      &-category {
+        font-size: 0.95rem;
+        margin-left: 1.5rem;
+        text-align: center;
+        text-decoration: none;
+
+        color: $color-primary;
+        background-color: $color-secondary;
+        padding: 0 1rem 0 1rem;
+        border-radius: 5px;
+        text-transform: uppercase;
+        align-self: center;
+        transition: 0.2s;
+
+        &:hover {
+          background-color: darken($color-secondary, 10%);
+        }
+      }
+    }
+  }
+}
