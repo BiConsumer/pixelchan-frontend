@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TopicService} from "../../../../core/service/topic/topic.service";
-import {catchError, delay, filter, map, mergeMap, Observable, of} from "rxjs";
+import {catchError, delay, filter, map, mergeMap, Observable, of, retry, retryWhen, timer} from "rxjs";
 import {Topic} from "../../../../core/model/model";
 import {NgxSpinnerService} from "ngx-spinner";
 
@@ -16,10 +16,11 @@ export class TopComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.spinner.show();
+    this.spinner.show("top");
 
     this.topicService.list().pipe(
-      delay(5000),
+      // delay(1000),
+      retry({delay: 1000}),
       map(topics => topics.sort((a, b) => {
         if (a.rating > b.rating)
           return -1;
@@ -28,7 +29,7 @@ export class TopComponent implements OnInit {
         return 0;
       }).slice(0, 5))
     ).subscribe(response => {
-      this.spinner.hide();
+      this.spinner.hide("top");
       this.topics = response;
     });
   }

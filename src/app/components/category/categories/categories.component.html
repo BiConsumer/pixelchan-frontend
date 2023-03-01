@@ -1,8 +1,13 @@
 <div class="categories container">
+
   <div class="row head">
     <p class="col-6">Category</p>
     <p class="col-1">Topics</p>
     <p class="col">Latest</p>
+  </div>
+
+  <div class="position-relative spinner">
+    <ngx-spinner name="categories" type="line-scale-pulse-out" [fullScreen]="false" size="large" color="#4e62ce" bdColor="transparent"></ngx-spinner>
   </div>
 
   <ng-template ngFor let-display [ngForOf]="displays" let-i="index">

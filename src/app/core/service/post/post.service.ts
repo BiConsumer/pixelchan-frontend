@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {RestService} from "../rest.service";
 import {Post, PostCreateRequest} from "../../model/model";
 import {HttpClient} from "@angular/common/http";
-import {map, Observable} from "rxjs";
+import {defaultIfEmpty, map, Observable} from "rxjs";
 
 @Injectable({providedIn: 'root'})
 export class PostService extends RestService<PostCreateRequest, Post> {
@@ -12,7 +12,8 @@ export class PostService extends RestService<PostCreateRequest, Post> {
 
   public ofTopic(topicId: string): Observable<Post[]> {
     return this.list().pipe(
-      map(posts => posts.filter(post => post.topic === topicId))
+      map(posts => posts.filter(post => post.topic === topicId)),
+      defaultIfEmpty([])
     );
   }
 
@@ -24,7 +25,8 @@ export class PostService extends RestService<PostCreateRequest, Post> {
         if (a.createdAt < b.createdAt)
           return 1;
         return 0;
-      }))
+      })),
+      defaultIfEmpty([])
     );
   }
 

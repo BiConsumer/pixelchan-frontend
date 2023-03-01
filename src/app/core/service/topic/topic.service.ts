@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {RestService} from "../rest.service";
 import {Topic, TopicCreateRequest} from "../../model/model";
 import {HttpClient} from "@angular/common/http";
-import {map, Observable} from "rxjs";
+import {map, Observable} from "rxjs"
 
 @Injectable({providedIn: 'root'})
 export class TopicService extends RestService<TopicCreateRequest, Topic> {
