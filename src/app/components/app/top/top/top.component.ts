@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TopicService} from "../../../../core/service/topic/topic.service";
+import {TopicService} from "../../../../core/service/topic/topic/topic.service";
 import {catchError, delay, filter, map, mergeMap, Observable, of, retry, retryWhen, timer} from "rxjs";
 import {Topic} from "../../../../core/model/model";
 import {NgxSpinnerService} from "ngx-spinner";

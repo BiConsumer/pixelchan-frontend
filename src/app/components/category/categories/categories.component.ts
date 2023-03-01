@@ -2,7 +2,7 @@ import {Component, OnInit, Pipe, PipeTransform} from '@angular/core';
 import {defaultIfEmpty, delay, forkJoin, map, mergeMap, Observable, of, retry} from "rxjs";
 import {CategoryDisplay, Topic, TopicDisplay} from "../../../core/model/model";
 import {CategoryService} from "../../../core/service/category/category.service";
-import {TopicService} from "../../../core/service/topic/topic.service";
+import {TopicService} from "../../../core/service/topic/topic/topic.service";
 import {PostService} from "../../../core/service/post/post.service";
 import {NgxSpinnerService} from "ngx-spinner";
 

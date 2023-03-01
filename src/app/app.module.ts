@@ -13,6 +13,7 @@ import {CategoriesComponent} from "./components/category/categories/categories.c
 import {NgxSpinnerModule} from "ngx-spinner";
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { TopicComponent } from './components/topic/topic/topic.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     TopComponent,
     CategoryComponent,
     CategoriesComponent,
-    DateAgoPipe
+    DateAgoPipe,
+    TopicComponent
   ],
   imports: [
     BrowserModule,

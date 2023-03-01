@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {RestService} from "../rest.service";
-import {Post, Topic, TopicCreateRequest} from "../../model/model";
+import {RestService} from "../../rest.service";
+import {Post, Topic, TopicCreateRequest} from "../../../model/model";
 import {HttpClient} from "@angular/common/http";
 import {defaultIfEmpty, map, Observable} from "rxjs"
 
