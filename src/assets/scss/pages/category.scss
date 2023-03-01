@@ -1,4 +1,4 @@
-.categories {
+.category {
   font-family: $font-body;
 
   .head {
@@ -10,14 +10,15 @@
     }
   }
 
-  .category {
+  .topic {
 
-    padding-top: 1rem;
+    padding: 1rem;
+
     border-bottom: 1px solid $color-grey-light-3;
 
     &-link {
       text-decoration: none;
-      font-size: 1.8rem;
+      font-size: 1rem;
     }
 
     &-title {
@@ -34,12 +35,12 @@
       font-weight: 500;
     }
 
-    &-topics {
+    &-replies {
       color: $color-tertiary-dark;
       font-weight: 900;
     }
 
-    &-topic {
+    &-post {
       padding-bottom: 0.2rem;
 
       &-name {

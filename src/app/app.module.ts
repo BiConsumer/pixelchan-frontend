@@ -9,11 +9,11 @@ import { TopComponent } from './components/app/top/top/top.component';
 import {HttpClientModule} from "@angular/common/http";
 import { CategoryComponent } from './components/category/category/category.component';
 import { DateAgoPipe } from './pipes/date/date-ago.pipe';
-import {LatestPipe} from "./pipes/topic/latest-topics.pipe";
 import {CategoriesComponent} from "./components/category/categories/categories.component";
 import {NgxSpinnerModule} from "ngx-spinner";
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { LatestPostPipe } from './pipes/post/latest-post.pipe';
 
 @NgModule({
   declarations: [
@@ -24,8 +24,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     TopComponent,
     CategoryComponent,
     CategoriesComponent,
-    LatestPipe,
     DateAgoPipe,
+    LatestPostPipe,
   ],
   imports: [
     BrowserModule,

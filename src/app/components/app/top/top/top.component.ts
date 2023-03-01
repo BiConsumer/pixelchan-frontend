@@ -19,7 +19,7 @@ export class TopComponent implements OnInit {
     this.spinner.show("top");
 
     this.topicService.list().pipe(
-      // delay(1000),
+      delay(500),
       retry({delay: 1000}),
       map(topics => topics.sort((a, b) => {
         if (a.rating > b.rating)

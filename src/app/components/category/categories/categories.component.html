@@ -25,10 +25,10 @@
       </div>
 
       <div class="col">
-        <ng-template ngFor let-latest [ngForOf]="display.topicDisplays | latestTopics" let-i="index">
+        <ng-template ngFor let-latest [ngForOf]="display.topicDisplays | slice:0:5" let-i="index">
           <div class="category-topic row">
             <a class="category-topic-name col" routerLink="/topic/{{latest.topic.id}}">{{latest.topic.name}}</a>
-            <span class="category-topic-date col-auto">{{latest.latestPost.createdAt | dateAgo}}</span>
+            <span class="category-topic-date col-auto">{{latest.posts[0].createdAt | dateAgo}}</span>
           </div>
         </ng-template>
       </div>

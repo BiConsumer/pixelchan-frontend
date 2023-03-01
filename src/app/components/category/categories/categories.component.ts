@@ -28,10 +28,10 @@ export class CategoriesComponent implements OnInit {
     this.categoryService.list().pipe(
       // delay(1000),
       retry({delay: 1000}),
-      mergeMap(categories => {
+      mergeMap(categories =>  {
         return forkJoin(
           categories.map(category => {
-            return this.topicService.ofCategory(category.id).pipe(
+            return this.topicService.ofCategorySortedByDate(category.id).pipe(
               mergeMap(topics => {
                 if (!topics.length) {
                   return of([])
@@ -40,8 +40,6 @@ export class CategoriesComponent implements OnInit {
                 return forkJoin(
                   topics.map(topic => {
                     return this.postService.ofTopic(topic.id).pipe(
-                      defaultIfEmpty([]),
-
                       map(posts => ({
                         topic: topic,
                         posts: posts
@@ -51,8 +49,25 @@ export class CategoriesComponent implements OnInit {
                 )
               }),
               map(topicDisplays => {
-                console.log("RETURNING SOMETHING MAN")
+                return topicDisplays.filter(display => display.posts[0] !== undefined)
+                  .sort((a, b) => {
 
+                    if (a.posts[0] === undefined) {
+                      return 1
+                    }
+
+                    if (b.posts[0] === undefined) {
+                      return -1
+                    }
+
+                    if (a.posts[0].createdAt > b.posts[0].createdAt)
+                      return -1;
+                    if (a.posts[0].createdAt < b.posts[0].createdAt)
+                      return 1;
+                    return 0;
+                  })
+              }),
+              map(topicDisplays => {
                 return ({
                   category: category,
                   topicDisplays: topicDisplays
@@ -61,6 +76,28 @@ export class CategoriesComponent implements OnInit {
             )
           })
         )
+      }),
+      map(result => {
+        return result.sort((a, b) => {
+
+          if (!a.topicDisplays.length) {
+            return 1
+          }
+
+          if (!b.topicDisplays.length) {
+            return -1
+          }
+
+          if (a.topicDisplays[0].posts[0].createdAt > b.topicDisplays[0].posts[0].createdAt) {
+            return -1;
+          }
+
+          if (b.topicDisplays[0].posts[0].createdAt > a.topicDisplays[0].posts[0].createdAt) {
+            return 1;
+          }
+
+          return 0
+        })
       })
     ).subscribe(result => {
       this.spinner.hide("categories");
