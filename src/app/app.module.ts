@@ -13,7 +13,6 @@ import {CategoriesComponent} from "./components/category/categories/categories.c
 import {NgxSpinnerModule} from "ngx-spinner";
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { LatestPostPipe } from './pipes/post/latest-post.pipe';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { LatestPostPipe } from './pipes/post/latest-post.pipe';
     TopComponent,
     CategoryComponent,
     CategoriesComponent,
-    DateAgoPipe,
-    LatestPostPipe,
+    DateAgoPipe
   ],
   imports: [
     BrowserModule,
