@@ -7,7 +7,7 @@ import {FavoritesComponent} from "./components/favorites/favorites/favorites.com
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: CategoriesComponent
   },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
 ];
