@@ -69,13 +69,14 @@ export class TopicComponent implements OnInit{
         }
 
         let favorites : string[] = JSON.parse(this.cookieService.get("favorites"))
+        this.animationItem?.resetSegments(true);
 
         if (favorites.includes(result.topic.id)) {
           this.isFavorite = true;
-          this.animationItem?.playSegments([LIKE_FRAME_END -1, LIKE_FRAME_END], true)
+          this.animationItem?.goToAndStop(LIKE_FRAME_END, true);
         } else {
-          this.isFavorite = false
-          this.animationItem?.playSegments([UNLIKE_FRAME_END -1, UNLIKE_FRAME_END], true)
+          this.isFavorite = false;
+          this.animationItem?.goToAndStop(UNLIKE_FRAME_END, true);
         }
 
         this.topicDisplay = result;
