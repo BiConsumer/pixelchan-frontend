@@ -9,7 +9,7 @@ const URL = "http://localhost:5000"
 export abstract class RestService<P, M extends Model> {
 
   protected readonly route: string;
-  protected constructor(private readonly client: HttpClient, modelRoute: string) {
+  protected constructor(protected readonly client: HttpClient, modelRoute: string) {
     this.client = client;
     this.route = `${URL}/${modelRoute}`;
   }

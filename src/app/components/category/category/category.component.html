@@ -23,11 +23,11 @@
         <span>{{display.posts.length - 1}}</span>
       </div>
 
-      <div class="col">
-        <ng-template ngFor let-latest [ngForOf]="display.posts | slice:0:1" let-i="index">
+      <div class="col container">
+        <ng-template ngFor let-latest [ngForOf]="display.posts | slice:0:5" let-i="index">
           <div class="topic-post row">
-            <a class="topic-post-name col" routerLink="/post/{{latest.id}}">{{latest.content}}</a>
-            <span class="topic-post-date col-auto">{{latest.createdAt | dateAgo}}</span>
+            <a class="topic-post-name col-6" routerLink="/post/{{latest.id}}">{{latest.content}}</a>
+            <p class="topic-post-date col-6">{{latest.createdAt | dateAgo}}</p>
           </div>
         </ng-template>
       </div>

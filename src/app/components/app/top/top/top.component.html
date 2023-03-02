@@ -9,7 +9,7 @@
   <ng-template ngFor [ngForOf]="topics" let-topic let-i="index">
     <div class="topic row">
       <a class="link col" routerLink="topic/{{topic.id}}">{{topic.name}}</a>
-      <p class="col-auto upvotes">{{topic.favorites}}<i class="fa-solid fa-heart heart"></i></p>
+      <p class="col-auto favorites">{{topic.favorites}}<i class="fa-solid fa-heart heart"></i></p>
     </div>
   </ng-template>
 </div>

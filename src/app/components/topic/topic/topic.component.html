@@ -4,11 +4,12 @@
     <ngx-spinner name="topic" type="line-scale-pulse-out" [fullScreen]="false" size="large" color="#4e62ce" bdColor="transparent"></ngx-spinner>
   </div>
 
-  <div class="initial" *ngIf="topicDisplay">
+  <div [ngClass]="(canHover ? 'favorite favorite-hover' : 'favorite') + (!topicDisplay ? ' d-none' : '')">
+    <p>{{favoriteCount}}</p>
+    <ng-lottie (complete)="complete()" (click)="favorite()" (animationCreated)="animationCreated($event)" [options]="options"></ng-lottie>
+  </div>
 
-    <div [ngClass]="canHover ? 'favorite-hover' : 'favorite'">
-      <ng-lottie (complete)="complete()" (click)="favorite()" (animationCreated)="animationCreated($event)" [options]="options"></ng-lottie>
-    </div>
+  <div class="initial" *ngIf="topicDisplay">
 
     <div class="d-flex align-items-center">
       <p class="initial-title">{{topicDisplay.topic.name}}</p>
@@ -16,6 +17,20 @@
     </div>
 
     <p class="initial-content">{{topicDisplay.posts[0].content}}</p>
+  </div>
+
+  <div class="container" *ngIf="topicDisplay">
+    <ng-template ngFor let-post [ngForOf]="topicDisplay.posts | slice:1:topicDisplay.posts.length - 1" let-i="index">
+      <div class="post">
+
+        <div class="d-flex">
+          <p class="post-author">Anonymous</p>
+          <p class="post-date">{{post.createdAt | dateAgo}}</p>
+        </div>
+
+        <p class="post-content">{{post.content}}</p>
+      </div>
+    </ng-template>
   </div>
 
 </div>

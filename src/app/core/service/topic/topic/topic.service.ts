@@ -28,4 +28,12 @@ export class TopicService extends RestService<TopicCreateRequest, Topic> {
     );
   }
 
+  public favorite(topicId: string): void {
+    this.client.get(this.route + "/favorite/" + topicId).subscribe();
+  }
+
+  public unfavorite(topicId: string): void {
+    this.client.get(this.route + "/unfavorite/" + topicId).subscribe();
+  }
+
 }

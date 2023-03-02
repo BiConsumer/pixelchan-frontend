@@ -51,6 +51,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        max-width: 30ch;
 
         text-align: left;
 
@@ -63,6 +64,7 @@
         color: $color-tertiary-dark;
         font-weight: 500;
         text-align: right;
+        float: right;
       }
     }
   }

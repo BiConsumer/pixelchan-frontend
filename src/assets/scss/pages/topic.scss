@@ -1,14 +1,25 @@
 .topic {
 
-  .favorite-hover {
+  .favorite {
     position: relative;
     height: 5rem;
     width: 5rem;
     justify-self: right;
     justify-content: right;
+    align-items: center;
     cursor: pointer;
     float: right;
+    display: flex;
 
+    p {
+      color: $color-tertiary-dark;
+      font-weight: 900;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .favorite-hover {
     path {
       transition: 0.2s;
     }
@@ -20,22 +31,14 @@
     }
   }
 
-  .favorite {
-    position: relative;
-    height: 5rem;
-    width: 5rem;
-    justify-self: right;
-    justify-content: right;
-    cursor: pointer;
-    float: right;
-  }
-
   .initial {
     border-bottom: 1px solid $color-grey-light-3;
+    margin-bottom: 2rem;
 
     &-content {
       padding-top: 1rem;
       color: $color-tertiary-dark;
+      word-wrap: break-word;
     }
 
     &-title {
@@ -60,6 +63,30 @@
           background-color: darken($color-secondary, 10%);
         }
       }
+    }
+  }
+
+  .post {
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+
+    &-author {
+      color: $color-secondary;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    &-content {
+      color: $color-tertiary-dark;
+      word-wrap: break-word;
+    }
+
+    &-date {
+      justify-self: right;
+      text-align: right;
+      width: 100%;
+      color: $color-tertiary;
+      font-style: italic;
     }
   }
 }

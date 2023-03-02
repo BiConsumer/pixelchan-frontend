@@ -15,6 +15,7 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {TopicComponent} from './components/topic/topic/topic.component';
 import {LottieModule} from "ngx-lottie";
+import {CookieService} from "ngx-cookie-service";
 
 export function playerFactory() {
   return import('lottie-web');
@@ -40,7 +41,7 @@ export function playerFactory() {
     BrowserAnimationsModule,
     LottieModule.forRoot({player: playerFactory})
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

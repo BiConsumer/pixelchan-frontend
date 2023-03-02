@@ -30,4 +30,17 @@ export class PostService extends RestService<PostCreateRequest, Post> {
     );
   }
 
+  public ofTopicSortedByDateFromOldest(topicId: string): Observable<Post[]> {
+    return this.ofTopic(topicId).pipe(
+      map(posts => posts.sort((a, b) => {
+        if (a.createdAt < b.createdAt)
+          return -1;
+        if (a.createdAt > b.createdAt)
+          return 1;
+        return 0;
+      })),
+      defaultIfEmpty([])
+    );
+  }
+
 }

@@ -5,9 +5,10 @@ import {TopicService} from "../../../core/service/topic/topic/topic.service";
 import {PostService} from "../../../core/service/post/post.service";
 import {NgxSpinnerService} from "ngx-spinner";
 import {ActivatedRoute} from "@angular/router";
-import {forkJoin, map, mergeMap} from "rxjs";
+import {delay, forkJoin, map, mergeMap, retry} from "rxjs";
 import {AnimationOptions, BMEnterFrameEvent} from "ngx-lottie";
 import {AnimationItem} from "lottie-web";
+import {CookieService} from "ngx-cookie-service";
 
 const LIKE_FRAME_START = 1;
 const LIKE_FRAME_END = 55;
@@ -23,6 +24,7 @@ export class TopicComponent implements OnInit{
 
   public topicDisplay: TopicDisplay | undefined
   public canHover: boolean = true;
+  public favoriteCount: number = 0;
 
   private animationItem: AnimationItem | undefined;
   private isFavorite: boolean = false;
@@ -38,6 +40,7 @@ export class TopicComponent implements OnInit{
     private topicService: TopicService,
     private postService: PostService,
     private spinner: NgxSpinnerService,
+    private cookieService: CookieService,
     private route: ActivatedRoute
   ) {
   }
@@ -47,8 +50,10 @@ export class TopicComponent implements OnInit{
 
     this.route.paramMap.subscribe(params => {
       this.topicService.find(params.get('id')!).pipe(
+        delay(50),
+        retry({delay: 1000}),
         mergeMap(topic => {
-          return this.postService.ofTopicSortedByDate(topic.id).pipe(
+          return this.postService.ofTopicSortedByDateFromOldest(topic.id).pipe(
             map(posts => ({
               topic: topic,
               posts: posts
@@ -57,6 +62,22 @@ export class TopicComponent implements OnInit{
         })
       ).subscribe(result => {
         this.spinner.hide("topic");
+        this.favoriteCount = result.topic.favorites;
+
+        if (!this.cookieService.check("favorites")) {
+          this.cookieService.set("favorites", JSON.stringify([]))
+        }
+
+        let favorites : string[] = JSON.parse(this.cookieService.get("favorites"))
+
+        if (favorites.includes(result.topic.id)) {
+          this.isFavorite = true;
+          this.animationItem?.playSegments([LIKE_FRAME_END -1, LIKE_FRAME_END], true)
+        } else {
+          this.isFavorite = false
+          this.animationItem?.playSegments([UNLIKE_FRAME_END -1, UNLIKE_FRAME_END], true)
+        }
+
         this.topicDisplay = result;
       })
     });
@@ -71,13 +92,33 @@ export class TopicComponent implements OnInit{
       return;
     }
 
-    this.canHover = false
+    if (this.topicDisplay === undefined) {
+      return;
+    }
+
+    this.canHover = false;
     this.isFavorite = !this.isFavorite;
 
     if (this.isFavorite) {
       this.animationItem.playSegments([LIKE_FRAME_START, LIKE_FRAME_END], true);
+      this.favoriteCount++;
+
+      let favorites : string[] = JSON.parse(this.cookieService.get("favorites"))
+      favorites.push(this.topicDisplay.topic.id)
+      this.cookieService.set("favorites", JSON.stringify(favorites));
+
+      this.topicService.favorite(this.topicDisplay.topic.id);
     } else {
       this.animationItem.playSegments([UNLIKE_FRAME_START, UNLIKE_FRAME_END], true);
+      this.favoriteCount--;
+
+      let favorites : string[] = JSON.parse(this.cookieService.get("favorites"))
+
+      this.cookieService.set("favorites", JSON.stringify(favorites.filter(value => {
+        return value !== this.topicDisplay!.topic.id;
+      })))
+
+      this.topicService.unfavorite(this.topicDisplay.topic.id);
     }
   }
 
