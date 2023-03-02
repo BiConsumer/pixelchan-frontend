@@ -16,6 +16,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {TopicComponent} from './components/topic/topic/topic.component';
 import {LottieModule} from "ngx-lottie";
 import {CookieService} from "ngx-cookie-service";
+import { FavoritesComponent } from './components/favorites/favorites/favorites.component';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -31,7 +32,8 @@ export function playerFactory() {
     CategoryComponent,
     CategoriesComponent,
     DateAgoPipe,
-    TopicComponent
+    TopicComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
