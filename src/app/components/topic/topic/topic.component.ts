@@ -6,6 +6,14 @@ import {PostService} from "../../../core/service/post/post.service";
 import {NgxSpinnerService} from "ngx-spinner";
 import {ActivatedRoute} from "@angular/router";
 import {forkJoin, map, mergeMap} from "rxjs";
+import {AnimationOptions, BMEnterFrameEvent} from "ngx-lottie";
+import {AnimationItem} from "lottie-web";
+
+const LIKE_FRAME_START = 1;
+const LIKE_FRAME_END = 55;
+
+const UNLIKE_FRAME_START = 80;
+const UNLIKE_FRAME_END = 115;
 
 @Component({
   selector: 'app-topic',
@@ -14,6 +22,16 @@ import {forkJoin, map, mergeMap} from "rxjs";
 export class TopicComponent implements OnInit{
 
   public topicDisplay: TopicDisplay | undefined
+  public canHover: boolean = true;
+
+  private animationItem: AnimationItem | undefined;
+  private isFavorite: boolean = false;
+
+  options: AnimationOptions = {
+    path: '/assets/lotties/favorite.json',
+    loop: false,
+    autoplay: false
+  };
 
   constructor(
     private categoryService: CategoryService,
@@ -25,7 +43,6 @@ export class TopicComponent implements OnInit{
   }
 
   ngOnInit() {
-    console.log("loading")
     this.spinner.show("topic");
 
     this.route.paramMap.subscribe(params => {
@@ -43,5 +60,28 @@ export class TopicComponent implements OnInit{
         this.topicDisplay = result;
       })
     });
+  }
+
+  animationCreated(animationItem: AnimationItem): void {
+    this.animationItem = animationItem;
+  }
+
+  favorite(): void {
+    if (this.animationItem === undefined) {
+      return;
+    }
+
+    this.canHover = false
+    this.isFavorite = !this.isFavorite;
+
+    if (this.isFavorite) {
+      this.animationItem.playSegments([LIKE_FRAME_START, LIKE_FRAME_END], true);
+    } else {
+      this.animationItem.playSegments([UNLIKE_FRAME_START, UNLIKE_FRAME_END], true);
+    }
+  }
+
+  complete() {
+    this.canHover = true;
   }
 }

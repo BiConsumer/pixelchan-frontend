@@ -6,6 +6,10 @@
 
   <div class="initial" *ngIf="topicDisplay">
 
+    <div [ngClass]="canHover ? 'favorite-hover' : 'favorite'">
+      <ng-lottie (complete)="complete()" (click)="favorite()" (animationCreated)="animationCreated($event)" [options]="options"></ng-lottie>
+    </div>
+
     <div class="d-flex align-items-center">
       <p class="initial-title">{{topicDisplay.topic.name}}</p>
       <a routerLink="/category/{{topicDisplay.topic.category}}" class="d-inline initial-title-category">{{topicDisplay.topic.category}}</a>

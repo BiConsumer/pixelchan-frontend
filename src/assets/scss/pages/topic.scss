@@ -1,5 +1,35 @@
 .topic {
 
+  .favorite-hover {
+    position: relative;
+    height: 5rem;
+    width: 5rem;
+    justify-self: right;
+    justify-content: right;
+    cursor: pointer;
+    float: right;
+
+    path {
+      transition: 0.2s;
+    }
+
+    &:hover {
+      path {
+        fill: #4e62ce;
+      }
+    }
+  }
+
+  .favorite {
+    position: relative;
+    height: 5rem;
+    width: 5rem;
+    justify-self: right;
+    justify-content: right;
+    cursor: pointer;
+    float: right;
+  }
+
   .initial {
     border-bottom: 1px solid $color-grey-light-3;
 

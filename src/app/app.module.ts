@@ -14,6 +14,11 @@ import {NgxSpinnerModule} from "ngx-spinner";
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {TopicComponent} from './components/topic/topic/topic.component';
+import {LottieModule} from "ngx-lottie";
+
+export function playerFactory() {
+  return import('lottie-web');
+}
 
 @NgModule({
   declarations: [
@@ -33,6 +38,7 @@ import {TopicComponent} from './components/topic/topic/topic.component';
     HttpClientModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
+    LottieModule.forRoot({player: playerFactory})
   ],
   providers: [],
   bootstrap: [AppComponent],
