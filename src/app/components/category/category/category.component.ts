@@ -5,7 +5,7 @@ import {TopicService} from "../../../core/service/topic/topic/topic.service";
 import {PostService} from "../../../core/service/post/post.service";
 import {NgxSpinnerService} from "ngx-spinner";
 import {ActivatedRoute} from "@angular/router";
-import {forkJoin, map, mergeMap, of} from "rxjs";
+import {forkJoin, map, mergeMap, of, retry} from "rxjs";
 
 @Component({
   selector: 'app-category',
@@ -29,6 +29,7 @@ export class CategoryComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       this.categoryService.find(params.get('id')!).pipe(
+        retry({delay: 1000}),
         mergeMap(category => {
           return this.topicService.ofCategorySortedByDate(category.id).pipe(
             mergeMap(topics => {
