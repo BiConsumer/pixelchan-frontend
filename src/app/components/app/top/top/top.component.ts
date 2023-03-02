@@ -22,9 +22,9 @@ export class TopComponent implements OnInit {
       delay(500),
       retry({delay: 1000}),
       map(topics => topics.sort((a, b) => {
-        if (a.rating > b.rating)
+        if (a.favorites > b.favorites)
           return -1;
-        if (a.rating < b.rating)
+        if (a.favorites < b.favorites)
           return 1;
         return 0;
       }).slice(0, 5))

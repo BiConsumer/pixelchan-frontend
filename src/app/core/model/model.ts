@@ -16,7 +16,7 @@ export interface Topic extends Model {
 
   category: string;
   name: string;
-  rating: number;
+  favorites: number;
 
 }
 
