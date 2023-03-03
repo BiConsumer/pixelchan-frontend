@@ -20,7 +20,7 @@
   </div>
 
   <div class="container" *ngIf="topicDisplay">
-    <ng-template ngFor let-post [ngForOf]="topicDisplay.posts | slice:1:topicDisplay.posts.length - 1" let-i="index">
+    <ng-template ngFor let-post [ngForOf]="topicDisplay.posts | slice:1:topicDisplay.posts.length" let-i="index">
       <div class="post">
 
         <div class="d-flex">

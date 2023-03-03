@@ -15,12 +15,9 @@
     padding-top: 1rem;
     border-bottom: 1px solid $color-grey-light-3;
 
-    &-link {
+    &-title {
       text-decoration: none;
       font-size: 1.8rem;
-    }
-
-    &-title {
       color: $color-text;
       transition: 0.2s;
 
@@ -47,10 +44,6 @@
         color: $color-secondary;
         transition: 0.2s;
 
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
         text-align: left;
 
         &:hover{
@@ -58,10 +51,17 @@
         }
       }
 
+      &-replies {
+        color: $color-tertiary-dark;
+        font-weight: 900;
+        text-align: right;
+      }
+
       &-date {
         color: $color-tertiary-dark;
         font-weight: 500;
         text-align: right;
+        padding-left: 0;
       }
     }
   }

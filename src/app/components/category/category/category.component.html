@@ -1,38 +1,43 @@
 <div class="category container">
 
-  <div class="row head">
-    <p class="col-6">Topic</p>
-    <p class="col-1">Replies</p>
-    <p class="col">Activity</p>
-  </div>
-
   <div class="position-relative spinner">
     <ngx-spinner name="category" type="line-scale-pulse-out" [fullScreen]="false" size="large" color="#4e62ce" bdColor="transparent"></ngx-spinner>
   </div>
 
-  <ng-template ngFor let-display [ngForOf]="displays" let-i="index">
-    <div class="topic row">
+  <ng-template [ngIf]="displays">
 
-      <div class="col-6">
-        <a class="topic-link" routerLink="/topic/{{display.topic.id}}">
-          <span class="topic-title">{{display.topic.name}}</span>
-        </a>
-      </div>
-
-      <div class="col-1 topic-replies text-center">
-        <span>{{display.posts.length - 1}}</span>
-      </div>
-
-      <div class="col container">
-        <ng-template ngFor let-latest [ngForOf]="display.posts | slice:0:5" let-i="index">
-          <div class="topic-post row">
-            <a class="topic-post-name col-6" routerLink="/post/{{latest.id}}">{{latest.content}}</a>
-            <p class="topic-post-date col-6">{{latest.createdAt | dateAgo}}</p>
-          </div>
-        </ng-template>
-      </div>
-
+    <div class="row head">
+      <p class="col-6">Topic</p>
+      <p class="col-1">Replies</p>
+      <p class="col">Activity</p>
     </div>
+
+    <ng-template ngFor let-display [ngForOf]="displays" let-i="index">
+      <div class="topic row">
+
+        <div class="col-6">
+          <a class="topic-link" routerLink="/topic/{{display.topic.id}}">
+            <span class="topic-title">{{display.topic.name}}</span>
+          </a>
+        </div>
+
+        <div class="col-1 topic-replies text-center">
+          <span>{{display.posts.length - 1}}</span>
+        </div>
+
+        <div class="col container">
+          <ng-template ngFor let-latest [ngForOf]="display.posts | slice:0:5" let-i="index">
+            <div class="topic-post row">
+              <a class="topic-post-name col-6" routerLink="/post/{{latest.id}}">{{latest.content}}</a>
+              <p class="topic-post-date col-6">{{latest.createdAt | dateAgo}}</p>
+            </div>
+          </ng-template>
+        </div>
+
+      </div>
+    </ng-template>
   </ng-template>
+
+
 
 </div>

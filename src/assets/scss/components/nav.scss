@@ -8,7 +8,7 @@
     color: $color-tertiary-dark;
     font-size: 0.85rem;
     position: relative;
-    left: 2rem;
+    left: 2.5rem;
   }
 
   ul {
@@ -24,13 +24,13 @@
     color: $color-tertiary-dark;
     transition: 0.2s;
     padding: 0.5rem 8rem 0.5rem 1rem;
-    width: 100%;
+    border-left: 5px solid transparent;
 
-    &--active {
+
+    &-active {
       color: $color-secondary;
       background-color: transparentize($color-secondary, 0.85);
       border-left: 5px solid $color-secondary;
-      margin-left: -5px;
     }
 
     &:hover {

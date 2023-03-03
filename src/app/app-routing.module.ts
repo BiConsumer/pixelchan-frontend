@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CategoryComponent} from "./components/category/category/category.component";
 import {CategoriesComponent} from "./components/category/categories/categories.component";
-import {TopicComponent} from "./components/topic/topic/topic.component";
+import {TopicComponent} from "./components/topic/topic.component";
 import {FavoritesComponent} from "./components/favorites/favorites/favorites.component";
 
 const routes: Routes = [
@@ -16,6 +16,10 @@ const routes: Routes = [
   },
   {
     path: 'topic/:id',
+    component: TopicComponent
+  },
+  {
+    path: 'topic/:id/:post',
     component: TopicComponent
   },
   {

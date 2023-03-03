@@ -7,7 +7,7 @@
 
   .search-bar {
     font-family: $font-body;
-    width: 35rem;
+    width: 100%;
     background: rgba(115, 115, 115, 0.2);
     display: flex;
     align-items: center;
@@ -50,5 +50,25 @@
   .fa-bell {
     font-size: 1.5rem;
     vertical-align: text-bottom;
+  }
+
+  .create-button {
+    background-color: $color-secondary;
+    border: none;
+    width: 100%;
+    max-width: 18rem;
+    height: 3rem;
+    border-radius: 10px;
+    transition: 0.2s;
+
+    &__content {
+      padding-right: 0.5rem;
+      color: white;
+      font-weight: 200;
+    }
+
+    &:hover {
+      background-color: darken($color-secondary, 10%);
+    }
   }
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {TopicService} from "../../../../core/service/topic/topic/topic.service";
+import {TopicService} from "../../../core/service/topic/topic.service";
 import {delay, map, retry} from "rxjs";
-import {Topic} from "../../../../core/model/model";
+import {Topic} from "../../../core/model/model";
 import {NgxSpinnerService} from "ngx-spinner";
 
 @Component({

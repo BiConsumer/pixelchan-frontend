@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {forkJoin, map, mergeMap, of, retry} from "rxjs";
 import {CategoryDisplay} from "../../../core/model/model";
 import {CategoryService} from "../../../core/service/category/category.service";
-import {TopicService} from "../../../core/service/topic/topic/topic.service";
+import {TopicService} from "../../../core/service/topic/topic.service";
 import {PostService} from "../../../core/service/post/post.service";
 import {NgxSpinnerService} from "ngx-spinner";
 
@@ -12,7 +12,7 @@ import {NgxSpinnerService} from "ngx-spinner";
 })
 export class CategoriesComponent implements OnInit {
 
-  public displays: CategoryDisplay[] = []
+  public displays: CategoryDisplay[] | undefined
 
   constructor(
     private categoryService: CategoryService,

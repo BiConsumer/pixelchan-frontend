@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TopicDisplay} from "../../../core/model/model";
 import {CategoryService} from "../../../core/service/category/category.service";
-import {TopicService} from "../../../core/service/topic/topic/topic.service";
+import {TopicService} from "../../../core/service/topic/topic.service";
 import {PostService} from "../../../core/service/post/post.service";
 import {NgxSpinnerService} from "ngx-spinner";
 import {ActivatedRoute} from "@angular/router";
@@ -13,7 +13,7 @@ import {forkJoin, map, mergeMap, of, retry} from "rxjs";
 })
 export class CategoryComponent implements OnInit {
 
-  public displays : TopicDisplay[] = []
+  public displays : TopicDisplay[] | undefined
 
   constructor(
     private categoryService: CategoryService,
