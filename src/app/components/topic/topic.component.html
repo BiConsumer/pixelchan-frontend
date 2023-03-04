@@ -4,19 +4,21 @@
     <ngx-spinner name="topic" type="line-scale-pulse-out" [fullScreen]="false" size="large" color="#4e62ce" bdColor="transparent"></ngx-spinner>
   </div>
 
-  <div [ngClass]="(canHover ? 'favorite favorite-hover' : 'favorite') + (!topicDisplay ? ' d-none' : '')">
-    <p>{{favoriteCount}}</p>
-    <ng-lottie (complete)="complete()" (click)="favorite()" (animationCreated)="animationCreated($event)" [options]="options"></ng-lottie>
-  </div>
+  <div class="initial">
 
-  <div class="initial" *ngIf="topicDisplay">
+    <ng-template [ngIf]="topicDisplay">
+      <p class="initial-title">{{topicDisplay.topic.name}}
+        <a routerLink="/category/{{topicDisplay.topic.category}}" class=" initial-title-category badge">{{topicDisplay.topic.category}}</a>
+      </p>
 
-    <div class="d-flex align-items-center">
-      <p class="initial-title">{{topicDisplay.topic.name}}</p>
-      <a routerLink="/category/{{topicDisplay.topic.category}}" class="d-inline initial-title-category">{{topicDisplay.topic.category}}</a>
+      <p class="initial-content">{{topicDisplay.posts[0].content}}</p>
+    </ng-template>
+
+    <div class="favorite" [ngClass]="(canHover ? 'favorite-hover' : '') + (!topicDisplay ? ' d-none' : '')">
+      <p>{{favoriteCount}}</p>
+      <ng-lottie height="3.8rem" width="3.8rem" (complete)="complete()" (click)="favorite()" (animationCreated)="animationCreated($event)" [options]="options"></ng-lottie>
     </div>
 
-    <p class="initial-content">{{topicDisplay.posts[0].content}}</p>
   </div>
 
   <div class="container" *ngIf="topicDisplay">

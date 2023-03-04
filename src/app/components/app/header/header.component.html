@@ -1,18 +1,18 @@
-<header class="header">
-  <div class="row w-100 h-100 align-items-center justify-content-around">
+<header class="header container-fluid">
+  <div class="row h-100 w-100 align-items-center justify-content-center">
 
-    <div class="col logo-text">
-      <i class="fa-solid fa-cube"></i><p class="d-inline">pixel<span>chan</span></p>
+    <div class="col logo-text text-start text-sm-center">
+      <a class="d-inline" routerLink="/home"><i class="fa-solid fa-cube"></i>pixel<span>chan</span></a>
     </div>
 
-    <div class="col">
+    <div class="col d-none d-md-block">
       <form class="search-bar">
         <i class="fa-solid fa-search"></i>
         <input type="text" placeholder="Search for Topics" name="q" autocomplete="off">
       </form>
     </div>
 
-    <div class="col">
+    <div class="col d-none d-sm-block text-center">
       <button type="button" class="create-button d-inline">
         <i class="fa-solid fa-plus create-button__content"></i>
         <p class="d-inline create-button__content">Start a New Topic</p>

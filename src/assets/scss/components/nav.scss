@@ -1,8 +1,7 @@
 .nav {
 
   text-align: left;
-  bottom: 1rem;
-  position: relative;
+  margin-top: -1rem;
 
   .title {
     color: $color-tertiary-dark;
@@ -23,9 +22,11 @@
     text-decoration: none;
     color: $color-tertiary-dark;
     transition: 0.2s;
+
+    white-space: nowrap;
+
     padding: 0.5rem 8rem 0.5rem 1rem;
     border-left: 5px solid transparent;
-
 
     &-active {
       color: $color-secondary;

@@ -10,20 +10,27 @@
     }
   }
 
+  .spacing {
+    padding-bottom: 1rem;
+  }
+
   .topic {
+
+    animation: gradient 15s ease infinite;
 
     padding: 1rem;
 
     border-bottom: 1px solid $color-grey-light-3;
 
-    &-link {
+    &-title {
       text-decoration: none;
       font-size: 1rem;
-    }
-
-    &-title {
       color: $color-text;
       transition: 0.2s;
+
+      @include media-breakpoint-down(md) {
+        font-size: 1.2rem;
+      }
 
       &:hover {
         color: $color-secondary;
@@ -41,7 +48,7 @@
     }
 
     &-post {
-      padding-bottom: 0.2rem;
+      padding-top: 0.2rem;
 
       &-name {
         text-decoration: none;
@@ -51,7 +58,6 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 30ch;
 
         text-align: left;
 

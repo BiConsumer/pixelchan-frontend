@@ -1,15 +1,16 @@
 .topic {
 
   .favorite {
-    position: relative;
-    height: 5rem;
-    width: 5rem;
-    justify-self: right;
-    justify-content: right;
+    display: flex;
+
+    margin-top: -1rem;
+    margin-right: -1rem;
+
+    justify-content: end;
     align-items: center;
     cursor: pointer;
-    float: right;
-    display: flex;
+
+    padding: 0;
 
     p {
       color: $color-tertiary-dark;
@@ -17,16 +18,16 @@
       margin: 0;
       padding: 0;
     }
-  }
 
-  .favorite-hover {
-    path {
-      transition: 0.2s;
-    }
-
-    &:hover {
+    &-hover {
       path {
-        fill: #4e62ce;
+        transition: 0.2s;
+      }
+
+      &:hover {
+        path {
+          fill: #4e62ce;
+        }
       }
     }
   }
@@ -47,16 +48,14 @@
 
       &-category {
         font-size: 0.95rem;
-        margin-left: 1.5rem;
         text-align: center;
         text-decoration: none;
+        vertical-align: middle;
 
         color: $color-primary;
         background-color: $color-secondary;
-        padding: 0 1rem 0 1rem;
         border-radius: 5px;
         text-transform: uppercase;
-        align-self: center;
         transition: 0.2s;
 
         &:hover {
