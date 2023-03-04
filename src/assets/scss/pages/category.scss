@@ -16,6 +16,28 @@
 
   .topic {
 
+    &-hot {
+      background: #e8396c;
+      font-size: 0.8rem;
+      bottom:0.1rem;
+
+      overflow: hidden;
+      position: relative;
+      vertical-align: middle;
+
+      &:after {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        background-image: $shine;
+        animation: shine 3s infinite linear;
+      }
+    }
+
     animation: gradient 15s ease infinite;
 
     padding: 1rem;

@@ -25,3 +25,11 @@ $color-text: #212529;
 
 $default-font-size: 1.6rem;
 $font-body: cera-round-pro;
+
+// -- Gradient -- //
+$shine: linear-gradient(
+  120deg,
+  rgba(255,255,255, 0) 30%,
+  rgba(255,255,255, .8),
+  rgba(255,255,255, 0) 70%
+);

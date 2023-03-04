@@ -16,7 +16,13 @@
       <div class="topic row">
 
         <div class="col-8 col-md-5 spacing">
-          <a class="topic-title" routerLink="/topic/{{display.topic.id}}">{{display.topic.name}}</a>
+          <a class="topic-title" routerLink="/topic/{{display.topic.id}}">{{display.topic.name}}
+
+            <ng-template [ngIf]="display.topic.favorites >= 40">
+              <span class="badge topic-hot">POPULAR</span>
+            </ng-template>
+
+          </a>
         </div>
 
         <div class="topic-replies col-4 text-end d-block d-md-none">{{display.posts.length-1}}</div>

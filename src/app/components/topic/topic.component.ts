@@ -79,6 +79,10 @@ export class TopicComponent implements OnInit{
           this.animationItem?.goToAndStop(UNLIKE_FRAME_END, true);
         }
 
+        console.log(favorites)
+        console.log(this.isFavorite)
+
+
         this.topicDisplay = result;
       })
     });
