@@ -6,6 +6,8 @@
 
   .search-bar {
     font-family: $font-body;
+    font-feature-settings: "ss01";
+
     width: 100%;
     background: rgba(115, 115, 115, 0.2);
     display: flex;

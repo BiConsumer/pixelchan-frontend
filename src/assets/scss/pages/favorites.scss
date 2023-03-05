@@ -1,3 +1,77 @@
 .favorites {
+  font-family: $font-body;
+  font-feature-settings: "ss01";
 
+  .head {
+    border-bottom: 3px solid $color-secondary;
+    color: $color-tertiary-dark;
+    font-weight: 500;
+  }
+
+  &-heart {
+    cursor: pointer;
+    color: $color-secondary;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: 0.2s;
+
+    &:hover {
+      color: darken($color-secondary, 10%);
+    }
+  }
+
+  .topic {
+
+
+    &-name {
+      text-decoration: none;
+      font-size: 1rem;
+      color: $color-text;
+      transition: 0.2s;
+
+      @include media-breakpoint-down(md) {
+        font-size: 1.2rem;
+      }
+
+      &:hover {
+        color: $color-secondary;
+      }
+    }
+
+    &-category {
+      font-size: 0.95rem;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      margin-bottom: 0.2rem;
+
+      color: $color-primary;
+      background-color: $color-secondary;
+      border-radius: 5px;
+      text-transform: uppercase;
+      transition: 0.2s;
+
+      &:hover {
+        background-color: darken($color-secondary, 10%);
+      }
+    }
+
+    &-latest {
+      text-decoration: none;
+      color: $color-secondary;
+      transition: 0.2s;
+      text-overflow: ellipsis;
+
+      &:hover {
+        color: lighten($color-secondary, 10%)
+      }
+    }
+  }
+
+  td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 0;
+  }
 }

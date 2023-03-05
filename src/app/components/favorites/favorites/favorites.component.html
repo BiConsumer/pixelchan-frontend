@@ -1,1 +1,54 @@
-<p>favorites works!</p>
+<div class="favorites">
+
+  <div class="position-relative spinner">
+    <ngx-spinner name="favorites" type="line-scale-pulse-out" [fullScreen]="false" size="large" color="#4e62ce" bdColor="transparent"></ngx-spinner>
+  </div>
+
+  <ng-template [ngIf]="displays">
+    <div class="table-responsive">
+      <table class="table">
+
+        <thead class="head">
+        <tr>
+          <td>Topic</td>
+          <td>Category</td>
+          <td>Latest</td>
+          <td></td>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <ng-template ngFor let-display [ngForOf]="displays" let-i="index">
+          <tr class="topic">
+
+            <td>
+              <a class="topic-name" routerLink="/topic/{{display.topic.id}}">
+                {{display.topic.name}}
+
+                <ng-template [ngIf]="display.topic.favorites >= 40">
+                  <span class="badge topic-hot">POPULAR</span>
+                </ng-template>
+              </a>
+            </td>
+
+            <td>
+              <a routerLink="/category/{{display.topic.category}}" class="badge topic-category">{{display.topic.category}}</a>
+            </td>
+            <td >
+              <a class="topic-latest" routerLink="/topic/{{display.topic.id}}/{{display.posts[0].id}}">{{display.posts[0].content}}</a>
+            </td>
+
+            <td class="text-center">
+              <i (click)="unfavorite(display.topic.id)" class="favorites-heart fa-solid fa-heart"></i>
+            </td>
+          </tr>
+        </ng-template>
+
+        </tbody>
+
+      </table>
+    </div>
+  </ng-template>
+
+</div>

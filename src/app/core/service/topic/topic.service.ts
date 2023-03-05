@@ -3,10 +3,12 @@ import {RestService} from "../rest.service";
 import {Topic, TopicCreateRequest} from "../../model/model";
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs"
+import {CookieService} from "ngx-cookie-service";
 
 @Injectable({providedIn: 'root'})
 export class TopicService extends RestService<TopicCreateRequest, Topic> {
-  constructor(httpClient: HttpClient) {
+
+  constructor(httpClient: HttpClient, private cookieService: CookieService) {
     super(httpClient, 'topic')
   }
 
@@ -29,10 +31,20 @@ export class TopicService extends RestService<TopicCreateRequest, Topic> {
   }
 
   public favorite(topicId: string): void {
+    let favorites : string[] = JSON.parse(this.cookieService.get("favorites"))
+    favorites.push(topicId)
+    this.cookieService.set("favorites", JSON.stringify(favorites));
+
     this.client.get(this.route + "/favorite/" + topicId).subscribe();
   }
 
   public unfavorite(topicId: string): void {
+    let favorites : string[] = JSON.parse(this.cookieService.get("favorites"))
+
+    this.cookieService.set("favorites", JSON.stringify(favorites.filter(value => {
+      return value !== topicId;
+    })))
+
     this.client.get(this.route + "/unfavorite/" + topicId).subscribe();
   }
 

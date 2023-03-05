@@ -5,8 +5,8 @@ import {TopicService} from "../../core/service/topic/topic.service";
 import {PostService} from "../../core/service/post/post.service";
 import {NgxSpinnerService} from "ngx-spinner";
 import {ActivatedRoute} from "@angular/router";
-import {delay, forkJoin, map, mergeMap, retry} from "rxjs";
-import {AnimationOptions, BMEnterFrameEvent} from "ngx-lottie";
+import {delay, map, mergeMap, retry} from "rxjs";
+import {AnimationOptions} from "ngx-lottie";
 import {AnimationItem} from "lottie-web";
 import {CookieService} from "ngx-cookie-service";
 
@@ -29,7 +29,7 @@ export class TopicComponent implements OnInit{
   private animationItem: AnimationItem | undefined;
   private isFavorite: boolean = false;
 
-  options: AnimationOptions = {
+  public options: AnimationOptions = {
     path: '/assets/lotties/favorite.json',
     loop: false,
     autoplay: false
@@ -49,6 +49,8 @@ export class TopicComponent implements OnInit{
     this.spinner.show("topic");
 
     this.route.paramMap.subscribe(params => {
+      //TODO: JUMP TO POST
+
       this.topicService.find(params.get('id')!).pipe(
         delay(50),
         retry({delay: 1000}),
@@ -79,10 +81,6 @@ export class TopicComponent implements OnInit{
           this.animationItem?.goToAndStop(UNLIKE_FRAME_END, true);
         }
 
-        console.log(favorites)
-        console.log(this.isFavorite)
-
-
         this.topicDisplay = result;
       })
     });
@@ -107,22 +105,10 @@ export class TopicComponent implements OnInit{
     if (this.isFavorite) {
       this.animationItem.playSegments([LIKE_FRAME_START, LIKE_FRAME_END], true);
       this.favoriteCount++;
-
-      let favorites : string[] = JSON.parse(this.cookieService.get("favorites"))
-      favorites.push(this.topicDisplay.topic.id)
-      this.cookieService.set("favorites", JSON.stringify(favorites));
-
       this.topicService.favorite(this.topicDisplay.topic.id);
     } else {
       this.animationItem.playSegments([UNLIKE_FRAME_START, UNLIKE_FRAME_END], true);
       this.favoriteCount--;
-
-      let favorites : string[] = JSON.parse(this.cookieService.get("favorites"))
-
-      this.cookieService.set("favorites", JSON.stringify(favorites.filter(value => {
-        return value !== this.topicDisplay!.topic.id;
-      })))
-
       this.topicService.unfavorite(this.topicDisplay.topic.id);
     }
   }

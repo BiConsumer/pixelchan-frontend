@@ -39,7 +39,7 @@ export class CategoriesComponent implements OnInit {
 
                 return forkJoin(
                   topics.map(topic => {
-                    return this.postService.ofTopic(topic.id).pipe(
+                    return this.postService.ofTopicSortedByDate(topic.id).pipe(
                       map(posts => ({
                         topic: topic,
                         posts: posts
