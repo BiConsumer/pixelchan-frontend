@@ -5,13 +5,13 @@ import {PostService} from "../../../core/service/post/post.service";
 import {NgxSpinnerService} from "ngx-spinner";
 import {CookieService} from "ngx-cookie-service";
 import {forkJoin, map, mergeMap, of, retry} from "rxjs";
-import {AnimationOptions} from "ngx-lottie";
+import {AppComponent} from "../../../app.component";
 
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html'
 })
-export class FavoritesComponent implements OnInit {
+export class FavoritesComponent extends AppComponent implements OnInit {
 
   public displays: TopicDisplay[] = []
 
@@ -21,6 +21,7 @@ export class FavoritesComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private cookieService: CookieService,
   ) {
+    super();
   }
 
   private updateList(): void {

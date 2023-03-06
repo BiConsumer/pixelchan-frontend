@@ -18,7 +18,7 @@
         <div class="col-8 col-md-5 spacing">
           <a class="topic-title" routerLink="/topic/{{display.topic.id}}">{{display.topic.name}}
 
-            <ng-template [ngIf]="display.topic.favorites >= 40">
+            <ng-template [ngIf]="display.topic.favorites >= POPULAR_COUNT">
               <span class="badge topic-hot">POPULAR</span>
             </ng-template>
 

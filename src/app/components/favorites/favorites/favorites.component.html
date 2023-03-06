@@ -26,7 +26,7 @@
               <a class="topic-name" routerLink="/topic/{{display.topic.id}}">
                 {{display.topic.name}}
 
-                <ng-template [ngIf]="display.topic.favorites >= 40">
+                <ng-template [ngIf]="display.topic.favorites >= POPULAR_COUNT">
                   <span class="badge topic-hot">POPULAR</span>
                 </ng-template>
               </a>
@@ -40,7 +40,7 @@
             </td>
 
             <td class="text-center">
-              <i (click)="unfavorite(display.topic.id)" class="favorites-heart fa-solid fa-heart"></i>
+              <i (click)="unfavorite(display.topic.id)" class="favorites-delete fa-solid fa-xmark"></i>
             </td>
           </tr>
         </ng-template>
