@@ -23,3 +23,12 @@ body {
     top: 15rem;
   }
 }
+
+.btn-primary {
+  background-color: $color-secondary;
+  border-color: $color-secondary;
+
+  &:hover {
+    background-color: darken($color-secondary, 10%);
+  }
+}
