@@ -27,7 +27,6 @@ export class TopicComponent implements OnInit{
     content: new FormControl('', {nonNullable: true}),
   });
 
-
   public topicDisplay: TopicDisplay | undefined
   public canHover: boolean = true;
   public favoriteCount: number = 0;
