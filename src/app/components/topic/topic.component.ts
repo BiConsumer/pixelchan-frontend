@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TopicDisplay} from "../../core/model/model";
+import {PostCreateRequest, TopicDisplay} from "../../core/model/model";
 import {CategoryService} from "../../core/service/category/category.service";
 import {TopicService} from "../../core/service/topic/topic.service";
 import {PostService} from "../../core/service/post/post.service";
@@ -9,6 +9,7 @@ import {delay, map, mergeMap, retry} from "rxjs";
 import {AnimationOptions} from "ngx-lottie";
 import {AnimationItem} from "lottie-web";
 import {CookieService} from "ngx-cookie-service";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 const LIKE_FRAME_START = 1;
 const LIKE_FRAME_END = 55;
@@ -21,6 +22,11 @@ const UNLIKE_FRAME_END = 115;
   templateUrl: './topic.component.html'
 })
 export class TopicComponent implements OnInit{
+
+  public postForm : FormGroup = this.formBuilder.group({
+    content: new FormControl('', {nonNullable: true}),
+  });
+
 
   public topicDisplay: TopicDisplay | undefined
   public canHover: boolean = true;
@@ -41,48 +47,66 @@ export class TopicComponent implements OnInit{
     private postService: PostService,
     private spinner: NgxSpinnerService,
     private cookieService: CookieService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder
   ) {
+  }
+
+  post(): void {
+    let topicId: string = this.route.snapshot.paramMap.get("id")!;
+
+    let request: PostCreateRequest = {
+      topic: topicId,
+      content: this.postForm.value.content
+    }
+
+
+    this.postForm.reset();
+    this.postService.create(request).subscribe(ignored => {
+      this.update(topicId);
+    })
+  }
+
+  private update(topicId: string): void {
+    this.topicService.find(topicId).pipe(
+      delay(50),
+      retry({delay: 1000}),
+      mergeMap(topic => {
+        return this.postService.ofTopicSortedByDateFromOldest(topic.id).pipe(
+          map(posts => ({
+            topic: topic,
+            posts: posts
+          }))
+        )
+      })
+    ).subscribe(result => {
+      this.spinner.hide("topic");
+      this.favoriteCount = result.topic.favorites;
+
+      if (!this.cookieService.check("favorites")) {
+        this.cookieService.set("favorites", JSON.stringify([]))
+      }
+
+      let favorites : string[] = JSON.parse(this.cookieService.get("favorites"))
+      this.animationItem?.resetSegments(true);
+
+      if (favorites.includes(result.topic.id)) {
+        this.isFavorite = true;
+        this.animationItem?.goToAndStop(LIKE_FRAME_END, true);
+      } else {
+        this.isFavorite = false;
+        this.animationItem?.goToAndStop(UNLIKE_FRAME_END, true);
+      }
+
+      this.topicDisplay = result;
+    })
   }
 
   ngOnInit() {
     this.spinner.show("topic");
 
     this.route.paramMap.subscribe(params => {
-      //TODO: JUMP TO POST
-
-      this.topicService.find(params.get('id')!).pipe(
-        delay(50),
-        retry({delay: 1000}),
-        mergeMap(topic => {
-          return this.postService.ofTopicSortedByDateFromOldest(topic.id).pipe(
-            map(posts => ({
-              topic: topic,
-              posts: posts
-            }))
-          )
-        })
-      ).subscribe(result => {
-        this.spinner.hide("topic");
-        this.favoriteCount = result.topic.favorites;
-
-        if (!this.cookieService.check("favorites")) {
-          this.cookieService.set("favorites", JSON.stringify([]))
-        }
-
-        let favorites : string[] = JSON.parse(this.cookieService.get("favorites"))
-        this.animationItem?.resetSegments(true);
-
-        if (favorites.includes(result.topic.id)) {
-          this.isFavorite = true;
-          this.animationItem?.goToAndStop(LIKE_FRAME_END, true);
-        } else {
-          this.isFavorite = false;
-          this.animationItem?.goToAndStop(UNLIKE_FRAME_END, true);
-        }
-
-        this.topicDisplay = result;
-      })
+      this.update(params.get("id")!)
     });
   }
 

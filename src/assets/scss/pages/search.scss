@@ -1,7 +1,6 @@
 .search {
 
   form {
-    border-bottom: 3px solid $color-secondary;
     margin-bottom: 2rem;
   }
 
@@ -22,6 +21,10 @@
   .topic {
     padding: 1rem 1rem 0 1rem;
     border-bottom: 1px solid $color-grey-light-3;
+
+    &:last-child {
+      border-bottom: 0;
+    }
 
     &-title {
       text-decoration: none;

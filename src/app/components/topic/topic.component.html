@@ -33,6 +33,16 @@
         <p class="post-content">{{post.content}}</p>
       </div>
     </ng-template>
+
+    <form [formGroup]="postForm" (ngSubmit)="post()">
+      <label for="post">Your comment</label>
+      <textarea class="form-control" id="post" formControlName="content"></textarea>
+
+      <pre></pre>
+
+      <button class="btn btn-primary" type="submit">Send</button>
+    </form>
+
   </div>
 
 </div>
