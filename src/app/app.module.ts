@@ -17,6 +17,8 @@ import {TopicComponent} from './components/topic/topic.component';
 import {LottieModule} from "ngx-lottie";
 import {CookieService} from "ngx-cookie-service";
 import { FavoritesComponent } from './components/favorites/favorites/favorites.component';
+import { SearchComponent } from './components/search/search.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 export function playerFactory() {
   return import('lottie-web');
@@ -33,7 +35,8 @@ export function playerFactory() {
     CategoriesComponent,
     DateAgoPipe,
     TopicComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ export function playerFactory() {
     HttpClientModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     LottieModule.forRoot({player: playerFactory})
   ],
   providers: [CookieService],

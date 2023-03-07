@@ -4,6 +4,7 @@ import {CategoryComponent} from "./components/category/category/category.compone
 import {CategoriesComponent} from "./components/category/categories/categories.component";
 import {TopicComponent} from "./components/topic/topic.component";
 import {FavoritesComponent} from "./components/favorites/favorites/favorites.component";
+import {SearchComponent} from "./components/search/search.component";
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'favorites',
     component: FavoritesComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
   },
   {
     path: '**',

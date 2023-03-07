@@ -1,0 +1,109 @@
+<div class="search container">
+  <form [formGroup]="searchForm" (ngSubmit)="search()" class="container">
+
+    <div class="row">
+      <label for="keywords" class="form-label">Keywords</label>
+      <input class="form-control" type="text" id="keywords" formControlName="keywords" placeholder="Write one or many keywords">
+    </div>
+
+    <pre></pre>
+
+    <div class="row">
+
+      <label>Amount of favorites</label>
+
+      <div class="col p-0"><input type="number" min="0" class="form-control" placeholder="Min" formControlName="minFavorites"></div>
+      <div class="col"><input type="number" min="0" class="form-control" placeholder="Max" formControlName="maxFavorites"></div>
+
+    </div>
+
+    <pre></pre>
+
+    <div class="row">
+      <label for="popular" class="form-label">Popular</label>
+      <select name="choice" id="popular" class="form-control" formControlName="popular">
+        <option value="none">Not important</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+
+    <pre></pre>
+
+    <div class="row">
+      <label class="p-0 col-12">Categories</label>
+
+      <ng-template ngFor let-category [ngForOf]="categories" let-i="index">
+        <div class="form-check">
+          <div>
+            <input class="form-check-input" type="checkbox" checked id="{{category.id}}" formControlName="{{category.id}}">
+            <label class="form-check-label" for="{{category.id}}">{{category.name}}</label>
+          </div>
+        </div>
+      </ng-template>
+
+    </div>
+
+    <pre></pre>
+
+    <div class="row">
+
+      <div class="col p-0 text-start">
+        <button class="btn btn-danger" type="reset">Reset</button>
+      </div>
+
+      <div class="col text-end">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+
+    </div>
+
+    <pre></pre>
+
+  </form>
+
+  <div class="position-relative spinner">
+    <ngx-spinner name="search" type="line-scale-pulse-out" [fullScreen]="false" size="large" color="#4e62ce" bdColor="transparent"></ngx-spinner>
+  </div>
+
+  <ng-template [ngIf]="displays">
+
+    <div class="row head d-none d-md-flex">
+      <p class="col-5">Topic</p>
+      <p class="col-2">Replies</p>
+      <p class="col-5">Activity</p>
+    </div>
+
+    <ng-template ngFor let-display [ngForOf]="displays" let-i="index">
+      <div class="topic row">
+
+        <div class="col-8 col-md-5 spacing">
+          <a class="topic-title" routerLink="/topic/{{display.topic.id}}">{{display.topic.name}}
+
+            <ng-template [ngIf]="display.topic.favorites >= POPULAR_COUNT">
+              <span class="badge topic-hot">POPULAR</span>
+            </ng-template>
+
+          </a>
+        </div>
+
+        <div class="topic-replies col-4 text-end d-block d-md-none">{{display.posts.length-1}}</div>
+
+        <div class="col-2 topic-replies d-none d-md-block">
+          <span>{{display.posts.length - 1}}</span>
+        </div>
+
+        <div class="col-12 col-md-5 container">
+          <ng-template ngFor let-latest [ngForOf]="display.posts | slice:0:5" let-i="index">
+            <div class="topic-post row">
+              <a class="topic-post-name col" routerLink="/topic/{{display.topic.id}}/{{latest.id}}">{{latest.content}}</a>
+              <p class="topic-post-date col-auto">{{latest.createdAt | dateAgo}}</p>
+            </div>
+          </ng-template>
+        </div>
+
+      </div>
+    </ng-template>
+  </ng-template>
+
+</div>

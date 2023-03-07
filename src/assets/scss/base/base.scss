@@ -7,7 +7,7 @@ body {
   background-color: darken($color-primary, 5%);
 }
 
-p, a {
+* {
   font-family: $font-body;
   font-weight: 700;
   font-feature-settings: "ss01";
