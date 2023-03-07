@@ -80,6 +80,7 @@
     &-content {
       color: $color-tertiary-dark;
       word-wrap: break-word;
+      //white-space: pre-line;
     }
 
     &-date {
@@ -88,6 +89,34 @@
       width: 100%;
       color: $color-tertiary;
       font-style: italic;
+    }
+  }
+
+  .comment {
+    resize: none;
+    min-height: 10rem;
+
+    &-bar {
+      padding-top: 1rem;
+
+      .counter {
+        margin-right: 0.5rem;
+        padding-right: 0.5rem;
+        border-right: 1px solid $color-grey-dark;
+      }
+
+      .send {
+        padding: 0.4rem 1rem 0.4rem 1rem;
+        border-radius: 10px;
+
+        &-low {
+          color: #f8a303;
+        }
+
+        &-zero {
+          color: $color-red;
+        }
+      }
     }
   }
 }

@@ -27,8 +27,14 @@ body {
 .btn-primary {
   background-color: $color-secondary;
   border-color: $color-secondary;
+  color: white;
 
   &:hover {
     background-color: darken($color-secondary, 10%);
+  }
+
+  &:disabled {
+    background-color: $color-secondary;
+    border-color: $color-secondary;
   }
 }

@@ -67,6 +67,14 @@ export class TopicComponent implements OnInit{
     })
   }
 
+  chars(): number {
+    return this.postForm.value.content.length;
+  }
+
+  remainingChars() : number {
+    return 1000 - this.postForm.value.content.length
+  }
+
   private update(topicId: string): void {
     this.topicService.find(topicId).pipe(
       delay(50),
