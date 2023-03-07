@@ -74,7 +74,7 @@
     &-author {
       color: $color-secondary;
       padding: 0;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     &-content {
@@ -89,6 +89,7 @@
       width: 100%;
       color: $color-tertiary;
       font-style: italic;
+      margin: 0;
     }
   }
 
