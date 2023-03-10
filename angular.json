@@ -34,7 +34,9 @@
               "node_modules/ngx-spinner/animations/line-scale-pulse-out.css",
               "src/assets/scss/main.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -1,4 +1,11 @@
 .topic-create {
+
+  &-title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+
   .comment {
     resize: none;
     min-height: 10rem;

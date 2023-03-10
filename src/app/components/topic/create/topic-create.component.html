@@ -5,11 +5,13 @@
   </div>
 
   <ng-template [ngIf]="categories">
-    <form class="d-flex flex-column justify-content-around" [formGroup]="createForm" (ngSubmit)="create()">
+    <p class="topic-create-title">Create Topic</p>
+
+    <form class="" [formGroup]="createForm" (ngSubmit)="create()">
 
       <div class="name">
         <label for="name" class="form-label">Name</label>
-        <input class="form-control" type="text" id="name" formControlName="name" placeholder="Write the name of your topic">
+        <input autocomplete="off" class="form-control" type="text" id="name" formControlName="name" placeholder="Name of your topic">
       </div>
 
       <pre></pre>

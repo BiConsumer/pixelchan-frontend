@@ -1,5 +1,5 @@
 <header class="header container-fluid">
-  <div class="row h-100 w-100 align-items-center justify-content-center">
+  <div class="row m-0 h-100 w-100 align-items-center justify-content-center">
 
     <div class="col logo-text text-start text-md-center">
       <a class="d-inline" routerLink="/home"><i class="fa-solid fa-cube"></i>pixel<span>chan</span></a>
@@ -19,9 +19,49 @@
       </button>
     </div>
 
-    <div class="col d-md-none">
-
+    <div class="col-auto d-md-none mobile-sidebar">
+      <button class="btn" data-bs-toggle="modal" data-bs-target="#navModal">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
+
+    <div class="modal fade" id="navModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <div class="logo-text">
+              <a class="d-inline" routerLink="/home"><i class="fa-solid fa-cube"></i>pixel<span>chan</span></a>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+
+            <div class="modal-line">
+              <a data-bs-dismiss="modal" routerLink="/home" routerLinkActive="item-active" class="item"><i class="icon fa-solid fa-house"></i>Home</a>
+            </div>
+
+            <div class="modal-line">
+              <a data-bs-dismiss="modal" routerLink="/favorites" routerLinkActive="item-active" class="item"><i class="icon fa-solid fa-heart"></i>Favorites</a>
+            </div>
+
+            <div class="modal-line">
+              <a data-bs-dismiss="modal" routerLink="/search" routerLinkActive="item-active" class="item"><i class="icon fa-solid fa-magnifying-glass-plus"></i>Search</a>
+            </div>
+
+            <div class="modal-line">
+              <button routerLink="/topic/create" type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                <i class="fa-solid fa-plus create-button__content"></i>
+                <p class="d-inline create-button__content">New Topic</p>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
   </div>

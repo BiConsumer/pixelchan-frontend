@@ -75,4 +75,28 @@
       background-color: darken($color-secondary, 10%);
     }
   }
+
+  .modal {
+    padding: 0;
+  }
+
+  .modal-dialog{
+
+    margin: 0;
+    width: 430px;
+  }
+
+  @media(max-width: 450px){
+
+    .modal-dialog{
+
+      width: 82%;
+    }
+  }
+
+  .modal-content {
+    border-radius: 0;
+    height: 100vh;
+    overflow-y: scroll;
+  }
 }
