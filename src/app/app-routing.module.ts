@@ -5,6 +5,7 @@ import {CategoriesComponent} from "./components/category/categories/categories.c
 import {TopicComponent} from "./components/topic/topic.component";
 import {FavoritesComponent} from "./components/favorites/favorites/favorites.component";
 import {SearchComponent} from "./components/search/search.component";
+import {TopicCreateComponent} from "./components/topic/create/topic-create.component";
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'category/:id',
     component: CategoryComponent
+  },
+  {
+    path: 'topic/create',
+    component: TopicCreateComponent
   },
   {
     path: 'topic/:id',

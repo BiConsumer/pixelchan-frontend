@@ -38,7 +38,6 @@
       <label for="post">Your comment</label>
       <textarea maxlength="1000" class="form-control comment shadow-none" id="post" formControlName="content"></textarea>
 
-
       <div class="d-flex align-items-center justify-content-end comment-bar">
         <span [ngClass]="(remainingChars() <= 20 ? 'send-low' : '') + ' ' + (chars() <= 0 ? 'd-none' : '') + ' ' + (remainingChars() <= 0 ? 'send-zero' : '')" class="counter">{{remainingChars()}}</span>
         <button class="btn btn-primary send" type="submit" [disabled]="chars() <= 0">Send</button>
