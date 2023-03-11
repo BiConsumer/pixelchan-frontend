@@ -20,7 +20,7 @@
         <label for="category" class="form-label">Category</label>
         <select name="choice" id="category" class="form-control" formControlName="category">
           <ng-template ngFor let-category [ngForOf]="categories" let-i="index">
-            <option value="{{category.id}}">{{category.name}}</option>
+            <option value="{{category.id}}">{{"CATEGORY." + category.id + ".NAME" | uppercase | translate}}</option>
           </ng-template>
         </select>
       </div>

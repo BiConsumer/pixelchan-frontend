@@ -43,6 +43,21 @@
     }
   },
 
+  "CATEGORY": {
+    "TESTING": {
+      "NAME": "Essai",
+      "DESCRIPTION": "Catégorie d'essai"
+    },
+    "QUESTIONS": {
+      "NAME": "Questions",
+      "DESCRIPTION": "Utilisez cette catégorie pour poser des questions et discuter de différents sujets"
+    },
+    "CONFESSIONS": {
+      "NAME": "Aveux",
+      "DESCRIPTION": "Utilisez cette catégorie pour avouer quelque chose que le monde ne devrait pas savoir..."
+    }
+  },
+
   "HEADER": {
     "START-NEW-TOPIC": "Nouveau sujet",
     "NEW-TOPIC": "Nouveau sujet",

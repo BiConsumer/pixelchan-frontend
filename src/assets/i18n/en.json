@@ -43,6 +43,21 @@
     }
   },
 
+  "CATEGORY": {
+    "TESTING": {
+      "NAME": "Testing",
+      "DESCRIPTION": "Test category"
+    },
+    "QUESTIONS": {
+      "NAME": "Questions",
+      "DESCRIPTION": "Use this category to ask questions and discuss different topics"
+    },
+    "CONFESSIONS": {
+      "NAME": "Confessions",
+      "DESCRIPTION": "Use this category to confess something that people shouldn't know..."
+    }
+  },
+
   "HEADER": {
     "START-NEW-TOPIC": "Start a New Topic",
     "NEW-TOPIC": "New Topic",

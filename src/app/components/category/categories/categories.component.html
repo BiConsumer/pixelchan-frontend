@@ -17,8 +17,8 @@
       <div class="category row">
 
         <div class="col-5">
-          <a class="category-title" routerLink="/category/{{display.category.id}}">{{display.category.name}}</a>
-          <p class="category-description d-none d-md-block">{{display.category.description}}</p>
+          <a class="category-title" routerLink="/category/{{display.category.id}}">{{"CATEGORY." + display.category.id + ".NAME" | uppercase | translate}}</a>
+          <p class="category-description d-none d-md-block">{{"CATEGORY." + display.category.id + ".DESCRIPTION" | uppercase | translate}}</p>
         </div>
 
         <div class="col-2 category-topics d-none d-md-block">
