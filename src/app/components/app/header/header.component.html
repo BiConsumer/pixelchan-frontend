@@ -8,14 +8,14 @@
     <div class="col d-none d-md-block">
       <form class="search-bar">
         <i class="fa-solid fa-search"></i>
-        <input type="text" placeholder="Search for Topics" name="q" autocomplete="off">
+        <input type="text" placeholder="{{'HEADER.SEARCH' | translate}}" name="q" autocomplete="off">
       </form>
     </div>
 
     <div class="col d-none d-md-block text-center">
       <button routerLink="/topic/create" type="button" class="create-button d-inline">
         <i class="fa-solid fa-plus create-button__content"></i>
-        <p class="d-inline create-button__content">Start a New Topic</p>
+        <p class="d-inline create-button__content">{{"HEADER.START-NEW-TOPIC" | translate}}</p>
       </button>
     </div>
 
@@ -23,6 +23,32 @@
       <button class="btn" data-bs-toggle="modal" data-bs-target="#navModal">
         <i class="fa-solid fa-bars"></i>
       </button>
+    </div>
+
+    <div class="dropdown d-none d-sm-flex col-sm-auto p-0">
+
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="flag m-0" [ngClass]="'flag-' + ('LANG.' + currentLang + '.FLAG' | uppercase | translate)"></i>
+      </button>
+
+      <ul class="dropdown-menu" aria-labelledby="dropdown">
+
+        <li>
+          <a class="dropdown-item"><i class="flag" [ngClass]="'flag-' + ('LANG.' + currentLang + '.FLAG' | uppercase | translate)"></i>
+            {{"LANG." + currentLang + ".NAME" | uppercase | translate}}
+            <i class="fa fa-check text-success ms-2"></i>
+          </a>
+        </li>
+
+        <li><hr class="dropdown-divider" /></li>
+
+        <li *ngFor="let language of options" (click)="changeLanguage(language)">
+          <a class="dropdown-item">
+            <i class="flag" [ngClass]="'flag-' + ('LANG.' + language + '.FLAG' | uppercase | translate)">
+            </i>{{"LANG." + language + ".NAME" | uppercase | translate}}
+          </a>
+        </li>
+      </ul>
     </div>
 
     <div class="modal fade" id="navModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -39,21 +65,21 @@
           <div class="modal-body">
 
             <div class="modal-line" routerLink="/home" routerLinkActive="modal-line-active" data-bs-dismiss="modal">
-              <i class="icon fa-solid fa-house"></i>Home
+              <i class="icon fa-solid fa-house"></i>{{"NAV.HOME" | translate}}
             </div>
 
             <div class="modal-line" routerLink="/favorites" routerLinkActive="modal-line-active" data-bs-dismiss="modal">
-              <i class="icon fa-solid fa-heart"></i>Favorites
+              <i class="icon fa-solid fa-heart"></i>{{"NAV.FAVORITES" | translate}}
             </div>
 
             <div class="modal-line" routerLink="/search" routerLinkActive="modal-line-active" data-bs-dismiss="modal">
-              <i class="icon fa-solid fa-magnifying-glass-plus"></i>Search
+              <i class="icon fa-solid fa-magnifying-glass-plus"></i>{{"NAV.SEARCH" | translate}}
             </div>
 
             <div class="modal-line modal-end">
-              <button routerLink="/topic/create" type="button" class="btn-create btn btn-primary" data-bs-dismiss="modal">
+              <button routerLink="/topic/create" type="button" class="w-100 h-100 btn-create btn btn-primary" data-bs-dismiss="modal">
                 <i class="fa-solid fa-plus create-button__content"></i>
-                <p class="d-inline create-button__content">New Topic</p>
+                <p class="d-inline create-button__content">{{"HEADER.NEW-TOPIC" | translate}}</p>
               </button>
             </div>
 

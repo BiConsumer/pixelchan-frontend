@@ -81,10 +81,10 @@
 
     &-dialog {
       margin: 0;
-      width: 430px;
+      width: 40rem;
 
       @include media-breakpoint-down(sm) {
-        width: 82%;
+        width: 80%;
       }
     }
 
@@ -126,4 +126,5 @@
       margin-top: auto;
     }
   }
+
 }

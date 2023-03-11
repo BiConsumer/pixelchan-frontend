@@ -1,38 +1,62 @@
 import {Pipe, PipeTransform} from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
+import {mergeMap} from "rxjs";
 
 const intervals: { [key: string]: number } = {
-  'year': 31536000,
-  'month': 2592000,
-  'week': 604800,
-  'day': 86400,
-  'hour': 3600,
-  'minute': 60,
-  'second': 1
+  'YEAR': 31536000,
+  'MONTH': 2592000,
+  'WEEK': 604800,
+  'DAY': 86400,
+  'HOUR': 3600,
+  'MINUTE': 60,
+  'SECOND': 1
 };
 
 @Pipe({
-  name: 'dateAgo'
+  name: 'dateAgo',
+  pure: false
 })
 export class DateAgoPipe implements PipeTransform {
+
+  value: string = "";
+
+  constructor(private translateService: TranslateService) {
+  }
 
   transform(input: Date): any {
     if (input) {
       const seconds = Math.floor((+new Date() - +new Date(input)) / 1000);
-      if (seconds < 29)
-        return 'Just now';
+      if (seconds < 29) {
+        this.translateService.getStreamOnTranslationChange("TIME.JUST-NOW").subscribe(result => {
+          this.value = result;
+        })
 
-      let counter;
+        return this.value
+      }
+
+      let counter: number;
       for (const i in intervals) {
         counter = Math.floor(seconds / intervals[i]);
-        if (counter > 0)
-          if (counter === 1) {
-            return counter + ' ' + i + ' ago';
-          } else {
-            return counter + ' ' + i + 's ago';
-          }
+        if (counter > 0) {
+
+          let tense = counter === 1 ? "SINGULAR" : "PLURAL";
+
+          this.translateService.getStreamOnTranslationChange("TIME." + i + "." + tense).pipe(
+            mergeMap(unit => {
+              return this.translateService.get("TIME.AGO", {
+                value: counter,
+                unit: unit
+              })
+            })
+          ).subscribe(result => {
+            this.value = result;
+          })
+
+          break;
+        }
       }
     }
-    return input;
-  }
 
+    return this.value;
+  }
 }

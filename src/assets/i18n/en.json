@@ -1,0 +1,57 @@
+{
+  "LANG": {
+    "EN": {
+      "NAME": "English",
+      "FLAG": "united-states"
+    },
+    "FR": {
+      "NAME": "French",
+      "FLAG": "france"
+    }
+  },
+
+  "TIME": {
+    "AGO": "{{value}} {{unit}} ago",
+    "JUST-NOW": "Just now",
+    "SECOND": {
+      "SINGULAR": "second",
+      "PLURAL": "seconds"
+    },
+    "MINUTE": {
+      "SINGULAR": "minute",
+      "PLURAL": "minutes"
+    },
+    "HOUR": {
+      "SINGULAR": "hour",
+      "PLURAL": "hours"
+    },
+    "DAY": {
+      "SINGULAR": "day",
+      "PLURAL": "days"
+    },
+    "WEEK": {
+      "SINGULAR": "week",
+      "PLURAL": "weeks"
+    },
+    "MONTH": {
+      "SINGULAR": "month",
+      "PLURAL": "months"
+    },
+    "YEAR": {
+      "SINGULAR": "year",
+      "PLURAL": "years"
+    }
+  },
+
+  "HEADER": {
+    "START-NEW-TOPIC": "Start a New Topic",
+    "NEW-TOPIC": "New Topic",
+    "SEARCH": "Search for Topics"
+  },
+
+  "NAV": {
+    "HOME": "Home",
+    "FAVORITES": "Favorites",
+    "SEARCH": "Search"
+  }
+}
