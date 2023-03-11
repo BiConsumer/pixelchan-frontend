@@ -65,8 +65,17 @@
   },
 
   "NAV": {
+    "TITLE": "MENU",
     "HOME": "Home",
     "FAVORITES": "Favorites",
     "SEARCH": "Search"
+  },
+
+  "TOP": {
+    "TITLE": "Top Topics"
+  },
+
+  "FOOTER": {
+    "COPYRIGHT": "All rights reserved to Orlando Dieguez"
   }
 }

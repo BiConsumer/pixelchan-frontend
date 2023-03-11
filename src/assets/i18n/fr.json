@@ -65,8 +65,17 @@
   },
 
   "NAV": {
+    "TITLE": "NAVIGATION",
     "HOME": "Accueuil",
     "FAVORITES": "Favoris",
     "SEARCH": "Rechercher"
+  },
+
+  "TOP": {
+    "TITLE": "Sujets chauds"
+  },
+
+  "FOOTER": {
+    "COPYRIGHT": "Tous droits réservés à Orlando Dieguez"
   }
 }
