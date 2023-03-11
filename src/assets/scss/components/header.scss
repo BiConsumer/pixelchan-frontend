@@ -78,21 +78,52 @@
 
   .modal {
     padding: 0;
-  }
 
-  .modal-dialog {
+    &-dialog {
+      margin: 0;
+      width: 430px;
 
-    margin: 0;
-    width: 430px;
-
-    @include media-breakpoint-down(sm) {
-      width: 82%;
+      @include media-breakpoint-down(sm) {
+        width: 82%;
+      }
     }
-  }
 
-  .modal-content {
-    border-radius: 0;
-    height: 100vh;
-    overflow-y: scroll;
+    &-line {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 1rem 1rem;
+      transition: all .5s ease;
+      color: $color-tertiary-dark;
+
+      &-active {
+        color: $color-secondary;
+        background-color: transparentize($color-secondary, 0.85);
+      }
+
+      &:hover {
+        color: darken($color-secondary, 10%)
+      }
+    }
+
+    &-content {
+      border-radius: 0;
+      height: 100vh;
+      overflow-y: scroll;
+    }
+
+    .icon {
+      padding-right: 1rem;;
+      font-size: 2rem;
+    }
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-end {
+      margin-top: auto;
+    }
   }
 }

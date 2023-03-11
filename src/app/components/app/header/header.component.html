@@ -38,20 +38,20 @@
 
           <div class="modal-body">
 
-            <div class="modal-line">
-              <a data-bs-dismiss="modal" routerLink="/home" routerLinkActive="item-active" class="item"><i class="icon fa-solid fa-house"></i>Home</a>
+            <div class="modal-line" routerLink="/home" routerLinkActive="modal-line-active" data-bs-dismiss="modal">
+              <i class="icon fa-solid fa-house"></i>Home
             </div>
 
-            <div class="modal-line">
-              <a data-bs-dismiss="modal" routerLink="/favorites" routerLinkActive="item-active" class="item"><i class="icon fa-solid fa-heart"></i>Favorites</a>
+            <div class="modal-line" routerLink="/favorites" routerLinkActive="modal-line-active" data-bs-dismiss="modal">
+              <i class="icon fa-solid fa-heart"></i>Favorites
             </div>
 
-            <div class="modal-line">
-              <a data-bs-dismiss="modal" routerLink="/search" routerLinkActive="item-active" class="item"><i class="icon fa-solid fa-magnifying-glass-plus"></i>Search</a>
+            <div class="modal-line" routerLink="/search" routerLinkActive="modal-line-active" data-bs-dismiss="modal">
+              <i class="icon fa-solid fa-magnifying-glass-plus"></i>Search
             </div>
 
-            <div class="modal-line">
-              <button routerLink="/topic/create" type="button" class="btn btn-primary" data-bs-dismiss="modal">
+            <div class="modal-line modal-end">
+              <button routerLink="/topic/create" type="button" class="btn-create btn btn-primary" data-bs-dismiss="modal">
                 <i class="fa-solid fa-plus create-button__content"></i>
                 <p class="d-inline create-button__content">New Topic</p>
               </button>
