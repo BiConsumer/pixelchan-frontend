@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 
-const URL = environment.BACKEND_URL
+const URL = environment.backend
 
 @Injectable({providedIn: 'root'})
 export abstract class RestService<P, M extends Model> {
