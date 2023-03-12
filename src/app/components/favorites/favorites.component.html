@@ -10,9 +10,9 @@
 
         <thead class="head">
         <tr>
-          <td>Topic</td>
-          <td>Category</td>
-          <td>Latest</td>
+          <td>{{"SHARED.TOPIC" | translate}}</td>
+          <td>{{"SHARED.CATEGORY" | translate}}</td>
+          <td>{{"SHARED.LATEST" | translate}}</td>
           <td></td>
         </tr>
         </thead>
@@ -27,13 +27,13 @@
                 {{display.topic.name}}
 
                 <ng-template [ngIf]="display.topic.favorites >= POPULAR_COUNT">
-                  <span class="badge topic-hot">POPULAR</span>
+                  <span class="badge topic-hot">{{"SHARED.POPULAR" | translate}}</span>
                 </ng-template>
               </a>
             </td>
 
             <td>
-              <a routerLink="/category/{{display.topic.category}}" class="badge topic-category">{{display.topic.category}}</a>
+              <a routerLink="/category/{{display.topic.category}}" class="badge topic-category">{{"CATEGORY." + display.topic.category + ".NAME" | uppercase | translate}}</a>
             </td>
             <td >
               <a class="topic-latest" routerLink="/topic/{{display.topic.id}}/{{display.posts[0].id}}">{{display.posts[0].content}}</a>

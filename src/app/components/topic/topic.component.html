@@ -8,7 +8,7 @@
 
     <ng-template [ngIf]="topicDisplay">
       <p class="initial-title">{{topicDisplay.topic.name}}
-        <a routerLink="/category/{{topicDisplay.topic.category}}" class=" initial-title-category badge">{{topicDisplay.topic.category}}</a>
+        <a routerLink="/category/{{topicDisplay.topic.category}}" class=" initial-title-category badge">{{"CATEGORY." + topicDisplay.topic.category + ".NAME" | uppercase | translate}}</a>
       </p>
 
       <p class="initial-content">{{topicDisplay.posts[0].content}}</p>
@@ -35,12 +35,12 @@
     </ng-template>
 
     <form [formGroup]="postForm" (ngSubmit)="post()">
-      <label for="post">Your comment</label>
+      <label for="post">{{"TOPIC.COMMENT" | translate}}</label>
       <textarea maxlength="1000" class="form-control comment shadow-none" id="post" formControlName="content"></textarea>
 
       <div class="d-flex align-items-center justify-content-end comment-bar">
         <span [ngClass]="(remainingChars() <= 20 ? 'send-low' : '') + ' ' + (chars() <= 0 ? 'd-none' : '') + ' ' + (remainingChars() <= 0 ? 'send-zero' : '')" class="counter">{{remainingChars()}}</span>
-        <button class="btn btn-primary send" type="submit" [disabled]="chars() <= 0">Send</button>
+        <button class="btn btn-primary send" type="submit" [disabled]="chars() <= 0">{{"TOPIC.SEND" | translate}}</button>
       </div>
 
     </form>

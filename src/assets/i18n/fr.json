@@ -77,5 +77,54 @@
 
   "FOOTER": {
     "COPYRIGHT": "Tous droits réservés à Orlando Dieguez"
+  },
+
+  "SHARED": {
+    "CATEGORY": "Catégorie",
+    "TOPIC": "Sujet",
+    "TOPICS": "Sujets",
+    "LATEST": "Récent",
+    "REPLIES": "Commentaires",
+    "ACTIVITY": "Activité",
+    "POPULAR": "POPULAIRE"
+  },
+
+  "SEARCH": {
+    "KEYWORDS": {
+      "LABEL": "Mots clés",
+      "PLACEHOLDER": "Écrivez un ou plusieurs mots-clés"
+    },
+
+    "FAVORITES": {
+      "LABEL": "Nombre de favoris",
+      "MIN": "Minimum",
+      "MAX": "Maximum"
+    },
+
+    "POPULAR": {
+      "LABEL": "Populaire",
+      "NONE": "Peu importe",
+      "YES": "Oui",
+      "NO": "Non"
+    },
+
+    "CATEGORIES": "Catégories",
+    "RESET": "Effacer",
+    "SEARCH": "Rechercher"
+  },
+
+  "CREATE": {
+    "TITLE": "Créer un sujet",
+    "NAME": {
+      "LABEL": "Nom",
+      "PLACEHOLDER": "Nom de votre sujet"
+    },
+    "CONTENT": "Contenu",
+    "CREATE": "Créer"
+  },
+
+  "TOPIC": {
+    "COMMENT": "Votre commentaire",
+    "SEND": "Envoyer"
   }
 }

@@ -5,19 +5,19 @@
   </div>
 
   <ng-template [ngIf]="categories">
-    <p class="topic-create-title">Create Topic</p>
+    <p class="topic-create-title">{{"CREATE.TITLE" | translate}}</p>
 
     <form class="" [formGroup]="createForm" (ngSubmit)="create()">
 
       <div class="name">
-        <label for="name" class="form-label">Name</label>
-        <input autocomplete="off" class="form-control" type="text" id="name" formControlName="name" placeholder="Name of your topic">
+        <label for="name" class="form-label">{{"CREATE.NAME.LABEL" | translate}}</label>
+        <input autocomplete="off" class="form-control" type="text" id="name" formControlName="name" placeholder="{{'CREATE.NAME.PLACEHOLDER' | translate}}">
       </div>
 
       <pre></pre>
 
       <div class="category">
-        <label for="category" class="form-label">Category</label>
+        <label for="category" class="form-label">{{"SHARED.CATEGORY" | translate}}</label>
         <select name="choice" id="category" class="form-control" formControlName="category">
           <ng-template ngFor let-category [ngForOf]="categories" let-i="index">
             <option value="{{category.id}}">{{"CATEGORY." + category.id + ".NAME" | uppercase | translate}}</option>
@@ -27,12 +27,12 @@
 
       <pre></pre>
 
-      <label for="post">Content</label>
+      <label for="post">{{"CREATE.CONTENT" | translate}}</label>
       <textarea maxlength="1000" class="form-control comment shadow-none" id="post" formControlName="content"></textarea>
 
       <div class="d-flex align-items-center justify-content-end comment-bar">
         <span [ngClass]="(remainingChars() <= 20 ? 'create-low' : '') + ' ' + (chars() <= 0 ? 'd-none' : '') + ' ' + (remainingChars() <= 0 ? 'create-zero' : '')" class="counter">{{remainingChars()}}</span>
-        <button class="btn btn-primary create" type="submit" [disabled]="chars() <= 0 || createForm.value.name.length <= 0">Create</button>
+        <button class="btn btn-primary create" type="submit" [disabled]="chars() <= 0 || createForm.value.name.length <= 0">{{"CREATE.CREATE" | translate}}</button>
       </div>
     </form>
   </ng-template>

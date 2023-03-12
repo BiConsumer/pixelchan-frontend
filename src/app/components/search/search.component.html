@@ -2,36 +2,36 @@
   <form [formGroup]="searchForm" (ngSubmit)="search()" class="container">
 
     <div class="row">
-      <label for="keywords" class="form-label">Keywords</label>
-      <input autocomplete="off" class="form-control" type="text" id="keywords" formControlName="keywords" placeholder="Write one or many keywords">
+      <label for="keywords" class="form-label">{{"SEARCH.KEYWORDS.LABEL" | translate}}</label>
+      <input autocomplete="off" class="form-control" type="text" id="keywords" formControlName="keywords" placeholder="{{'SEARCH.KEYWORDS.PLACEHOLDER' | translate}}">
     </div>
 
     <pre></pre>
 
     <div class="row">
 
-      <label>Amount of favorites</label>
+      <label>{{"SEARCH.FAVORITES.LABEL" | translate}}</label>
 
-      <div class="col p-0"><input type="number" min="0" class="form-control" placeholder="Min" formControlName="minFavorites"></div>
-      <div class="col"><input type="number" min="0" class="form-control" placeholder="Max" formControlName="maxFavorites"></div>
+      <div class="col p-0"><input type="number" min="0" class="form-control" placeholder="{{'SEARCH.FAVORITES.MIN' | translate}}" formControlName="minFavorites"></div>
+      <div class="col"><input type="number" min="0" class="form-control" placeholder="{{'SEARCH.FAVORITES.MAX' | translate}}" formControlName="maxFavorites"></div>
 
     </div>
 
     <pre></pre>
 
     <div class="row">
-      <label for="popular" class="form-label">Popular</label>
+      <label for="popular" class="form-label">{{'SEARCH.POPULAR.LABEL' | translate}}</label>
       <select name="choice" id="popular" class="form-control" formControlName="popular">
-        <option value="none">Not important</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
+        <option value="none">{{'SEARCH.POPULAR.NONE' | translate}}</option>
+        <option value="yes">{{'SEARCH.POPULAR.YES' | translate}}</option>
+        <option value="no">{{'SEARCH.POPULAR.NO' | translate}}</option>
       </select>
     </div>
 
     <pre></pre>
 
     <div class="row">
-      <label class="p-0 col-12">Categories</label>
+      <label class="p-0 col-12">{{'SEARCH.CATEGORIES' | translate}}</label>
 
       <ng-template ngFor let-category [ngForOf]="categories" let-i="index">
         <div class="form-check">
@@ -49,11 +49,11 @@
     <div class="row">
 
       <div class="col p-0 text-start">
-        <button class="btn btn-danger" type="reset">Reset</button>
+        <button class="btn btn-danger" type="reset">{{"SEARCH.RESET" | translate}}</button>
       </div>
 
       <div class="col text-end">
-        <button class="btn btn-primary" type="submit">Search</button>
+        <button class="btn btn-primary" type="submit">{{"SEARCH.SEARCH" | translate}}</button>
       </div>
 
     </div>
@@ -69,9 +69,9 @@
   <ng-template [ngIf]="displays">
 
     <div class="row head d-none d-md-flex">
-      <p class="col-5">Topic</p>
-      <p class="col-2">Replies</p>
-      <p class="col-5">Activity</p>
+      <p class="col-5">{{"SHARED.TOPIC" | translate}}</p>
+      <p class="col-2">{{"SHARED.REPLIES" | translate}}</p>
+      <p class="col-5">{{"SHARED.ACTIVITY" | translate}}</p>
     </div>
 
     <ng-template ngFor let-display [ngForOf]="displays" let-i="index">
@@ -81,7 +81,7 @@
           <a class="topic-title" routerLink="/topic/{{display.topic.id}}">{{display.topic.name}}
 
             <ng-template [ngIf]="display.topic.favorites >= POPULAR_COUNT">
-              <span class="badge topic-hot">POPULAR</span>
+              <span class="badge topic-hot">{{"SHARED.POPULAR" | translate}}</span>
             </ng-template>
 
           </a>

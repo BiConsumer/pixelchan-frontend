@@ -7,9 +7,9 @@
   <ng-template [ngIf]="displays">
 
     <div class="row head d-none d-md-flex">
-      <p class="col-5">Topic</p>
-      <p class="col-2">Replies</p>
-      <p class="col-5">Activity</p>
+      <p class="col-5">{{"SHARED.TOPIC" | translate}}</p>
+      <p class="col-2">{{"SHARED.REPLIES" | translate}}</p>
+      <p class="col-5">{{"SHARED.ACTIVITY" | translate}}</p>
     </div>
 
     <ng-template ngFor let-display [ngForOf]="displays" let-i="index">
@@ -19,7 +19,7 @@
           <a class="topic-title" routerLink="/topic/{{display.topic.id}}">{{display.topic.name}}
 
             <ng-template [ngIf]="display.topic.favorites >= POPULAR_COUNT">
-              <span class="badge topic-hot">POPULAR</span>
+              <span class="badge topic-hot">{{"SHARED.POPULAR" | translate}}</span>
             </ng-template>
 
           </a>
