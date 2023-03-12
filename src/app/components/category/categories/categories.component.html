@@ -28,16 +28,18 @@
         <div class="col-md-5 container">
           <ng-template ngFor let-latest [ngForOf]="display.topicDisplays | slice:0:5" let-i="index">
             <div class="category-topic row">
-              <a class="category-topic-name col" routerLink="/topic/{{latest.topic.id}}">
-                {{latest.topic.name}}
 
-                <span class="d-inline d-md-none category-topic-date">{{latest.posts[0].createdAt | dateAgo}}</span>
+              <div class="d-flex d-md-block col-md category-topic-name">
+                <a class="category-topic-name" routerLink="/topic/{{latest.topic.id}}">
+                  {{latest.topic.name}}
+                </a>
 
-              </a>
+                <span class="d-inline d-md-none text-nowrap category-topic-date">{{latest.posts[0].createdAt | dateAgo}}</span>
+
+                <p class="d-block d-md-none category-topic-replies ms-auto">{{latest.posts.length-1}}</p>
+              </div>
 
               <span class="category-topic-date d-none d-md-block col-md-auto">{{latest.posts[0].createdAt | dateAgo}}</span>
-
-              <p class="d-block d-md-none col-auto category-topic-replies">{{latest.posts.length-1}}</p>
 
             </div>
           </ng-template>

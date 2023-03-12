@@ -38,3 +38,10 @@ body {
     border-color: $color-secondary;
   }
 }
+
+.cursor {
+
+  &-pointer {
+    cursor: pointer;
+  }
+}

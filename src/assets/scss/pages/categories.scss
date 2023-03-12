@@ -50,11 +50,9 @@
 
         text-align: left;
 
-        @include media-breakpoint-up(md) {
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         &:hover{
           color: lighten($color-secondary, 10%);
@@ -72,6 +70,10 @@
         font-weight: 500;
         text-align: right;
         padding-left: 0;
+
+        @include media-breakpoint-down(md) {
+          padding: 0 1rem 0 1ch
+        }
       }
     }
   }

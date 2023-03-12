@@ -7,9 +7,12 @@
   <div class="initial">
 
     <ng-template [ngIf]="topicDisplay">
-      <p class="initial-title">{{topicDisplay.topic.name}}
-        <a routerLink="/category/{{topicDisplay.topic.category}}" class=" initial-title-category badge">{{"CATEGORY." + topicDisplay.topic.category + ".NAME" | uppercase | translate}}</a>
-      </p>
+
+      <div class="d-flex align-items-center">
+        <p class="initial-title">{{topicDisplay.topic.name}}</p>
+        <a routerLink="/category/{{topicDisplay.topic.category}}" class="d-inline initial-title-category badge">{{"CATEGORY." + topicDisplay.topic.category + ".NAME" | uppercase | translate}}</a>
+
+      </div>
 
       <p class="initial-content">{{topicDisplay.posts[0].content}}</p>
     </ng-template>

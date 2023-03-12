@@ -47,12 +47,16 @@
       font-size: 1.8rem;
       margin: 0;
 
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
       &-category {
         font-size: 0.95rem;
         text-align: center;
         text-decoration: none;
         vertical-align: middle;
-        margin-bottom: 0.2rem;
+        margin-left: 1rem;
 
         color: $color-primary;
         background-color: $color-secondary;

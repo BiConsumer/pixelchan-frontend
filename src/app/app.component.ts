@@ -7,6 +7,6 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
-  readonly POPULAR_COUNT = 50;
+  readonly POPULAR_COUNT = 20;
 
 }

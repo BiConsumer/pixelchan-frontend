@@ -32,6 +32,10 @@
       color: $color-text;
       transition: 0.2s;
 
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
       @include media-breakpoint-down(md) {
         font-size: 1.2rem;
       }
