@@ -31,45 +31,10 @@ export class FavoritesComponent extends AppComponent implements OnInit {
 
     let favorites : string[] = JSON.parse(this.cookieService.get("favorites"))
 
-    this.topicService.list().pipe(
+    this.topicService.displays().pipe(
       retry({delay: 1000}),
-      map(topics => {
-        return topics.filter(topic => favorites.includes(topic.id))
-      }),
-      mergeMap(topics => {
-        if (!topics.length) {
-          return of([]);
-        }
-
-        return forkJoin(
-          topics.map(topic => {
-            return this.postService.ofTopicSortedByDate(topic.id).pipe(
-              map(posts => ({
-                topic: topic,
-                posts: posts
-              }))
-            )
-          })
-        )
-      }),
       map(topicDisplays => {
-        return topicDisplays.filter(display => display.posts[0] !== undefined)
-          .sort((a, b) => {
-
-            if (a.posts[0] === undefined) {
-              return 1;
-            }
-
-            if (b.posts[0] === undefined) {
-              return -1;
-            }
-
-            if (a.posts[0].createdAt > b.posts[0].createdAt)
-              return -1;
-            if (a.posts[0].createdAt < b.posts[0].createdAt)
-              return 1;
-            return 0;
-          })
+        return topicDisplays.filter(topicDisplay => favorites.includes(topicDisplay.topic.id))
       })
     ).subscribe(result => {
       this.spinner.hide("favorites");
