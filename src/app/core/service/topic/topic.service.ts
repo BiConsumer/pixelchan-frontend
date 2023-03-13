@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {RestService} from "../rest.service";
-import {Topic, TopicCreateRequest} from "../../model/model";
+import {Post, Topic, TopicCreateRequest, TopicDisplay} from "../../model/model";
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs"
 import {CookieService} from "ngx-cookie-service";
@@ -12,22 +12,65 @@ export class TopicService extends RestService<TopicCreateRequest, Topic> {
     super(httpClient, 'topic')
   }
 
-  public ofCategory(categoryId: string): Observable<Topic[]> {
-    return this.list().pipe(
-      map(topics => topics.filter(topic => topic.category === categoryId))
-    );
+  private orderedPosts(posts: Post[]) : Post[] {
+    return posts.sort((a, b) => {
+
+      if (a.createdAt > b.createdAt) {
+        return -1;
+      }
+
+      if (b.createdAt > a.createdAt) {
+        return 1;
+      }
+
+      return 0;
+    })
   }
 
-  public ofCategorySortedByDate(topicId: string): Observable<Topic[]> {
-    return this.ofCategory(topicId).pipe(
-      map(topics => topics.sort((a, b) => {
-        if (a.createdAt > b.createdAt)
-          return -1;
-        if (a.createdAt < b.createdAt)
-          return 1;
-        return 0;
-      }))
-    );
+  displays() : Observable<TopicDisplay[]> {
+    return this.client.get<TopicDisplay[]>(this.route + "/displays/").pipe(
+      map(topicDisplays => {
+        return topicDisplays.sort((a, b) => {
+
+          let latestPostA : Post = this.orderedPosts(a.posts)[0];
+          let latestPostB : Post = this.orderedPosts(b.posts)[0];
+
+          if (latestPostA.createdAt > latestPostB.createdAt) {
+            return -1;
+          }
+
+          if (latestPostB.createdAt > latestPostA.createdAt) {
+            return 1;
+          }
+
+          return 0;
+        })
+      })
+    )
+  }
+
+  displaysOfCategory(categoryId: string) : Observable<TopicDisplay[]> {
+    return this.client.get<TopicDisplay[]>(this.route + "/displays/").pipe(
+      map(topicDisplays => {
+        return topicDisplays.filter(topicDisplay => {
+          return topicDisplay.topic.category === categoryId
+        }).sort((a, b) => {
+
+          let latestPostA : Post = this.orderedPosts(a.posts)[0];
+          let latestPostB : Post = this.orderedPosts(b.posts)[0];
+
+          if (latestPostA.createdAt > latestPostB.createdAt) {
+            return -1;
+          }
+
+          if (latestPostB.createdAt > latestPostA.createdAt) {
+            return 1;
+          }
+
+          return 0;
+        })
+      })
+    )
   }
 
   public favorite(topicId: string): void {

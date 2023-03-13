@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {Category, TopicDisplay} from "../../core/model/model";
+import {Category, Topic, TopicDisplay} from "../../core/model/model";
 import {AppComponent} from "../../app.component";
 import {CategoryService} from "../../core/service/category/category.service";
 import {TopicService} from "../../core/service/topic/topic.service";
 import {PostService} from "../../core/service/post/post.service";
 import {NgxSpinnerService} from "ngx-spinner";
-import {forkJoin, map, mergeMap, of, retry} from "rxjs";
+import {map, retry} from "rxjs";
 
 @Component({
   selector: 'app-search',
@@ -37,7 +37,6 @@ export class SearchComponent extends AppComponent implements OnInit {
 
   ngOnInit() {
     this.categoryService.list().subscribe(result => {
-
       for (let category of result) {
         this.searchForm.addControl(category.id, new FormControl(true, {nonNullable: true}));
       }
@@ -52,10 +51,12 @@ export class SearchComponent extends AppComponent implements OnInit {
     console.log(this.searchForm.value);
     this.spinner.show("search");
 
-    this.topicService.list().pipe(
+    this.topicService.displays().pipe(
       retry({delay: 1000}),
-      map(topics => {
-        return topics.filter(topic => {
+      map(topicDisplays => {
+        return topicDisplays.filter(topicDisplay => {
+          let topic: Topic = topicDisplay.topic;
+
           return topic.name.toLowerCase().includes(this.searchForm.value.keywords)
             && (this.searchForm.value.minFavorites == null || topic.favorites >= this.searchForm.value.minFavorites)
             && (this.searchForm.value.maxFavorites == null || topic.favorites <= this.searchForm.value.maxFavorites)
@@ -66,41 +67,6 @@ export class SearchComponent extends AppComponent implements OnInit {
             )
             && this.searchForm.value[topic.category]
         })
-      }),
-      mergeMap(topics => {
-        if (!topics.length) {
-          return of([]);
-        }
-
-        return forkJoin(
-          topics.map(topic => {
-            return this.postService.ofTopicSortedByDate(topic.id).pipe(
-              map(posts => ({
-                topic: topic,
-                posts: posts
-              }))
-            )
-          })
-        )
-      }),
-      map(topicDisplays => {
-        return topicDisplays.filter(display => display.posts[0] !== undefined)
-          .sort((a, b) => {
-
-            if (a.posts[0] === undefined) {
-              return 1;
-            }
-
-            if (b.posts[0] === undefined) {
-              return -1;
-            }
-
-            if (a.posts[0].createdAt > b.posts[0].createdAt)
-              return -1;
-            if (a.posts[0].createdAt < b.posts[0].createdAt)
-              return 1;
-            return 0;
-          })
       })
     ).subscribe(result => {
       this.spinner.hide("search");

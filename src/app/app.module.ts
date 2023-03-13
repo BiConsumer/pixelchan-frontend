@@ -19,7 +19,7 @@ import {CookieService} from "ngx-cookie-service";
 import {FavoritesComponent} from './components/favorites/favorites.component';
 import {SearchComponent} from './components/search/search.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import { TopicCreateComponent } from './components/topic/create/topic-create.component';
+import {TopicCreateComponent} from './components/topic/create/topic-create.component';
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 

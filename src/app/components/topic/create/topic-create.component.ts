@@ -2,10 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {CategoryService} from "../../../core/service/category/category.service";
 import {TopicService} from "../../../core/service/topic/topic.service";
-import {PostService} from "../../../core/service/post/post.service";
 import {NgxSpinnerService} from "ngx-spinner";
-import {CookieService} from "ngx-cookie-service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {Category, TopicCreateRequest} from "../../../core/model/model";
 
 @Component({

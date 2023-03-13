@@ -5,7 +5,7 @@ import {TopicService} from "../../../core/service/topic/topic.service";
 import {PostService} from "../../../core/service/post/post.service";
 import {NgxSpinnerService} from "ngx-spinner";
 import {ActivatedRoute} from "@angular/router";
-import {forkJoin, map, mergeMap, of, retry} from "rxjs";
+import {mergeMap, retry} from "rxjs";
 import {AppComponent} from "../../../app.component";
 
 @Component({
@@ -33,43 +33,7 @@ export class CategoryComponent extends AppComponent implements OnInit {
       this.categoryService.find(params.get('id')!).pipe(
         retry({delay: 1000}),
         mergeMap(category => {
-          return this.topicService.ofCategorySortedByDate(category.id).pipe(
-            mergeMap(topics => {
-              if (!topics.length) {
-                return of([]);
-              }
-
-              return forkJoin(
-                topics.map(topic => {
-                  return this.postService.ofTopicSortedByDate(topic.id).pipe(
-                    map(posts => ({
-                      topic: topic,
-                      posts: posts
-                    }))
-                  )
-                })
-              )
-            })
-          )
-        }),
-        map(topicDisplays => {
-          return topicDisplays.filter(display => display.posts[0] !== undefined)
-            .sort((a, b) => {
-
-              if (a.posts[0] === undefined) {
-                return 1;
-              }
-
-              if (b.posts[0] === undefined) {
-                return -1;
-              }
-
-              if (a.posts[0].createdAt > b.posts[0].createdAt)
-                return -1;
-              if (a.posts[0].createdAt < b.posts[0].createdAt)
-                return 1;
-              return 0;
-            })
+          return this.topicService.displaysOfCategory(category.id)
         })
       ).subscribe(result => {
         this.spinner.hide("category");
