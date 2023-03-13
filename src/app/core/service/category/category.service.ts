@@ -49,6 +49,14 @@ export class CategoryService extends RestService<Category, Category> {
       map(categoryDisplays => {
         return categoryDisplays.sort((a, b) => {
 
+          if (a.topicDisplays.length <= 0) {
+            return 1;
+          }
+
+          if (b.topicDisplays.length <= 0) {
+            return -1
+          }
+
           let latestPostA : Post = this.orderedTopicDisplays(a.topicDisplays)[0].posts[0];
           let latestPostB : Post = this.orderedTopicDisplays(b.topicDisplays)[0].posts[0];
 
