@@ -8,6 +8,8 @@
   position: relative;
   vertical-align: middle;
 
+  overflow: hidden;
+
   &:after {
     content: '';
 
