@@ -76,7 +76,6 @@ export class TopicComponent implements OnInit{
 
   private update(topicId: string): void {
     this.topicService.find(topicId).pipe(
-      delay(50),
       retry({delay: 1000}),
       mergeMap(topic => {
         return this.postService.ofTopicSortedByDateFromOldest(topic.id).pipe(

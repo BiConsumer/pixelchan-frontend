@@ -26,7 +26,6 @@ export class CategoriesComponent implements OnInit {
     this.spinner.show("categories")
 
     this.categoryService.displays().pipe(
-      // delay(1000),
       retry({delay: 1000}),
     ).subscribe(result => {
       this.spinner.hide("categories");
