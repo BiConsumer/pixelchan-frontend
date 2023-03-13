@@ -55,6 +55,26 @@
     "CONFESSIONS": {
       "NAME": "Aveux",
       "DESCRIPTION": "Utilisez cette catégorie pour avouer quelque chose que le monde ne devrait pas savoir..."
+    },
+    "INTRODUCTIONS": {
+      "NAME": "Présentations",
+      "DESCRIPTION": "Utilisez cette catégorie pour vous présenter"
+    },
+    "PETS": {
+      "NAME": "Animaux",
+      "DESCRIPTION": "Utilisez cette catégorie pour parler d'animaux"
+    },
+    "MEMES": {
+      "NAME": "Mèmes",
+      "DESCRIPTION": "Utilisez cette catégorie pour parler de mèmes"
+    },
+    "FOOD": {
+      "NAME": "Nourriture",
+      "DESCRIPTION": "Utilisez cette catégorie pour parler de nourriture"
+    },
+    "VIDEO_GAMES": {
+      "NAME": "Jeux vidéo",
+      "DESCRIPTION": "Utilisez cette catégorie pour parler de jeux vidéo"
     }
   },
 

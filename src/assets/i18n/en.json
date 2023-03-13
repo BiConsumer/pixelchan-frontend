@@ -55,6 +55,26 @@
     "CONFESSIONS": {
       "NAME": "Confessions",
       "DESCRIPTION": "Use this category to confess something that people shouldn't know..."
+    },
+    "INTRODUCTIONS": {
+      "NAME": "Introductions",
+      "DESCRIPTION": "Use this category to introduce yourself"
+    },
+    "PETS": {
+      "NAME": "Pets",
+      "DESCRIPTION": "Use this category to talk about pets"
+    },
+    "MEMES": {
+      "NAME": "Memes",
+      "DESCRIPTION": "Use this category to talk about memes"
+    },
+    "FOOD": {
+      "NAME": "Food",
+      "DESCRIPTION": "Use this category to talk about food"
+    },
+    "VIDEO_GAMES": {
+      "NAME": "Video Games",
+      "DESCRIPTION": "Use this category to talk about video games"
     }
   },
 
