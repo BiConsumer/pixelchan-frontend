@@ -12,7 +12,7 @@ export class HeaderComponent {
   public options: string[];
 
   constructor(private translateService: TranslateService, private cookieService: CookieService) {
-    translateService.addLangs(["en", "fr"]);
+    translateService.addLangs(["en", "fr", "es"]);
     translateService.setDefaultLang("en");
 
     this.currentLang = cookieService.get("lang") || "en"

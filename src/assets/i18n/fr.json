@@ -7,6 +7,10 @@
     "FR": {
       "NAME": "Français",
       "FLAG": "france"
+    },
+    "ES": {
+      "NAME": "Espagnol",
+      "FLAG": "spain"
     }
   },
 

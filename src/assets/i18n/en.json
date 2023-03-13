@@ -7,6 +7,10 @@
     "FR": {
       "NAME": "French",
       "FLAG": "france"
+    },
+    "ES": {
+      "NAME": "Spanish",
+      "FLAG": "spain"
     }
   },
 
@@ -129,7 +133,7 @@
     },
 
     "CATEGORIES": "Categories",
-    "RESET": "Rest",
+    "RESET": "Reset",
     "SEARCH": "Search"
   },
 

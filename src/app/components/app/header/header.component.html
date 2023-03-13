@@ -33,7 +33,7 @@
 
       <ul class="dropdown-menu" aria-labelledby="dropdown">
 
-        <li>
+        <li class="cursor-pointer">
           <a class="dropdown-item"><i class="flag" [ngClass]="'flag-' + ('LANG.' + currentLang + '.FLAG' | uppercase | translate)"></i>
             {{"LANG." + currentLang + ".NAME" | uppercase | translate}}
             <i class="fa fa-check text-success ms-2"></i>
@@ -42,7 +42,7 @@
 
         <li><hr class="dropdown-divider" /></li>
 
-        <li *ngFor="let language of options" (click)="changeLanguage(language)">
+        <li class="cursor-pointer" *ngFor="let language of options" (click)="changeLanguage(language)">
           <a class="dropdown-item">
             <i class="flag" [ngClass]="'flag-' + ('LANG.' + language + '.FLAG' | uppercase | translate)">
             </i>{{"LANG." + language + ".NAME" | uppercase | translate}}

@@ -1,0 +1,154 @@
+{
+  "LANG": {
+    "EN": {
+      "NAME": "Ingles",
+      "FLAG": "united-states"
+    },
+    "FR": {
+      "NAME": "Frances",
+      "FLAG": "france"
+    },
+    "ES": {
+      "NAME": "Español",
+      "FLAG": "spain"
+    }
+  },
+
+  "TIME": {
+    "AGO": "Hace {{value}} {{unit}}",
+    "JUST-NOW": "Hace un momento",
+    "SECOND": {
+      "SINGULAR": "segundo",
+      "PLURAL": "segundos"
+    },
+    "MINUTE": {
+      "SINGULAR": "minuto",
+      "PLURAL": "minutos"
+    },
+    "HOUR": {
+      "SINGULAR": "hora",
+      "PLURAL": "horas"
+    },
+    "DAY": {
+      "SINGULAR": "día",
+      "PLURAL": "días"
+    },
+    "WEEK": {
+      "SINGULAR": "semana",
+      "PLURAL": "semanas"
+    },
+    "MONTH": {
+      "SINGULAR": "mes",
+      "PLURAL": "meses"
+    },
+    "YEAR": {
+      "SINGULAR": "año",
+      "PLURAL": "años"
+    }
+  },
+
+  "CATEGORY": {
+    "TESTING": {
+      "NAME": "Probando",
+      "DESCRIPTION": "Categoría de Prueba"
+    },
+    "QUESTIONS": {
+      "NAME": "Preguntas",
+      "DESCRIPTION": "Utiliza esta categoría para hacer preguntas y discutir diferentes temas"
+    },
+    "CONFESSIONS": {
+      "NAME": "Confesiones",
+      "DESCRIPTION": "Utiliza esta categoría para confesar algo que la gente no debería saber..."
+    },
+    "INTRODUCTIONS": {
+      "NAME": "Introducciones",
+      "DESCRIPTION": "Utiliza esta categoría para presentarte"
+    },
+    "PETS": {
+      "NAME": "Mascotas",
+      "DESCRIPTION": "Utiliza esta categoría para hablar de mascotas"
+    },
+    "MEMES": {
+      "NAME": "Memes",
+      "DESCRIPTION": "Utiliza esta categoría para hablar de memes"
+    },
+    "FOOD": {
+      "NAME": "Comida",
+      "DESCRIPTION": "Utiliza esta categoría para hablar de comida"
+    },
+    "VIDEO_GAMES": {
+      "NAME": "Juegos",
+      "DESCRIPTION": "Utiliza esta categoría para hablar de videojuegos"
+    }
+  },
+
+  "HEADER": {
+    "START-NEW-TOPIC": "Iniciar un nuevo tema",
+    "NEW-TOPIC": "Nuevo tema",
+    "SEARCH": "Buscar temas"
+  },
+
+  "NAV": {
+    "TITLE": "MENÚ",
+    "HOME": "Home",
+    "FAVORITES": "Favoritos",
+    "SEARCH": "Buscar"
+  },
+
+  "TOP": {
+    "TITLE": "Top temas"
+  },
+
+  "FOOTER": {
+    "COPYRIGHT": "Todos los Derechos Reservados a Orlando Diéguez"
+  },
+
+  "SHARED": {
+    "CATEGORY": "Categoría",
+    "TOPIC": "Tema",
+    "TOPICS": "Temas",
+    "LATEST": "Latest",
+    "REPLIES": "Respuestas",
+    "ACTIVITY": "Actividad",
+    "POPULAR": "POPULAR"
+  },
+
+  "SEARCH": {
+    "KEYWORDS": {
+      "LABEL": "Palabras Clave",
+      "PLACEHOLDER": "Escribe una o varias palabras clave"
+    },
+
+    "FAVORITES": {
+      "LABEL": "Cantidad de favoritos",
+      "MIN": "Min",
+      "MAX": "Max"
+    },
+
+    "POPULAR": {
+      "LABEL": "Popular",
+      "NONE": "No importa",
+      "YES": "Si",
+      "NO": "No"
+    },
+
+    "CATEGORIES": "Categorías",
+    "RESET": "Reiniciar",
+    "SEARCH": "Buscar"
+  },
+
+  "CREATE": {
+    "TITLE": "Crear tema",
+    "NAME": {
+      "LABEL": "Nombre",
+      "PLACEHOLDER": "Nombre del tema"
+    },
+    "CONTENT": "Contenido",
+    "CREATE": "Crear"
+  },
+
+  "TOPIC": {
+    "COMMENT": "Tu comentario",
+    "SEND": "Enviar"
+  }
+}
