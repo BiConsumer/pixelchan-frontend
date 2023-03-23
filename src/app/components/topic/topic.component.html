@@ -9,7 +9,7 @@
     <ng-template [ngIf]="topicDisplay">
 
       <div class="d-flex align-items-center">
-        <p class="initial-title">{{topicDisplay.topic.name}}</p>
+        <h1 class="initial-title">{{topicDisplay.topic.name}}</h1>
         <a routerLink="/category/{{topicDisplay.topic.category}}" class="d-inline initial-title-category badge">{{"CATEGORY." + topicDisplay.topic.category + ".NAME" | uppercase | translate}}</a>
 
       </div>
